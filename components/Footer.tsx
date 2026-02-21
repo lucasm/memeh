@@ -1,30 +1,43 @@
+'use client'
+
 import Link from 'next/link'
+import { useLocale } from '@/lib/i18n'
 import SelectLocale from './SelectLocale'
 
-export default function Footer(props) {
+// locales
+import en from '@/locales/en'
+import pt_BR from '@/locales/pt-BR'
+import pt_PT from '@/locales/pt-PT'
+import { IconMemeh } from '@/components/Icons'
+
+const localesMap = {
+  en,
+  'pt-BR': pt_BR,
+  'pt-PT': pt_PT,
+}
+
+type LocaleKey = keyof typeof localesMap
+
+export default function Footer() {
+  const locale = useLocale() as LocaleKey
+  const t = localesMap[locale]
+
   return (
-    <footer>
+    <footer suppressHydrationWarning>
       <div className="container">
-        <Link href="/">
-          <a aria-label="homepage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-              <path
-                className="svg"
-                d="M157.9,47.37l4.67-42.1H17.74L.2,163.15c-1.94,17.44,10.63,31.58,28.07,31.58h134.3c11.63,0,22.1-9.42,23.39-21L200,47.37ZM116.28,141.8H95.17V111.22H65V141.8H43.74V59.21H65V91.09H95.17V59.21h21.11Zm49.8,21.35a12.06,12.06,0,0,1-11.69,10.53A9.24,9.24,0,0,1,145,163.15l10.53-94.73h21.05Z"
-              />
-            </svg>
-            Headly
-          </a>
+        <Link href="/" aria-label="homepage" className="logo">
+          <IconMemeh/>
+          Memeh
         </Link>
 
-        <p>{props.title}</p>
+        <p>{t.title}</p>
 
-        <SelectLocale edition={props.edition} />
+        <SelectLocale />
 
         <p>
-          {props.legal} {props.credits}{' '}
-          <a href="https://lucasm.dev/?utm_source=headly_app" target="_blank" rel="external noreferrer">
-            Lucas Menezes
+          {t.legal} {t.credits}{' '}
+          <a href="https://lucasm.dev/?utm_source=memeh_app" target="_blank" rel="external noreferrer">
+            Lucas Maués
           </a>
           .
         </p>
@@ -32,22 +45,22 @@ export default function Footer(props) {
         <ul>
           <li>
             <a href="https://github.com/sponsors/lucasm" target="_blank" rel="external noreferrer">
-              ♥ {props.donate}
+              ♥ {t.donate}
             </a>
           </li>
           <li>
-            <a href="https://github.com/lucasm/headly" target="_blank" rel="external noopener noreferrer">
-              {props.about}
+            <a href="https://github.com/lucasm/memeh" target="_blank" rel="external noopener noreferrer">
+              {t.about}
             </a>
           </li>
           <li>
-            <a href="https://lucasm.dev/privacy" target="_blank" rel="external noopener noreferrer">
-              {props.privacy}
+            <a href="https://lucasm.dev/legal" target="_blank" rel="external noopener noreferrer">
+              {t.privacy}
             </a>
           </li>
 
           <li>
-            <a href="mailto:feedback@headly.app?subject=Feedback">{props.feedback}</a>
+            <a href="mailto:feedback@memeh.app?subject=Feedback">{t.feedback}</a>
           </li>
         </ul>
       </div>

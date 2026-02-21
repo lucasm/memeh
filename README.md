@@ -1,44 +1,110 @@
 <div align="center">
-<a href="https://headly.app/">
-<img height="128" src="https://headly.vercel.app/images/headly-logo-color.svg">
+<a href="https://memeh.app/">
+<img height="128" src="https://memeh.vercel.app/images/memeh-logo-color.svg">
 </a>
 </div>
 <h1 align="center">
-<a href="https://headly.app/">Headly</a>
+<a href="https://memeh.app/">Memeh</a>
 </h1>
 <p align="center">
 <img alt="Languages" src="https://img.shields.io/badge/languages available-3-ffde17">
-<img alt="License" src="https://img.shields.io/github/license/lucasm/headly?color=ff7157">
-<img alt="Issues" src="https://img.shields.io/github/issues/lucasm/headly?color=ff4e66">
+<img alt="License" src="https://img.shields.io/github/license/lucasm/memeh?color=ff7157">
+<img alt="Issues" src="https://img.shields.io/github/issues/lucasm/memeh?color=ff4e66">
 </p>
 <p align="center">
 Trusted journalism to fight against misinformation <br>
 </p>
 
-## 📰 Headly.app
+## 📰 Memeh.app
 
-Headly is a breaking news headlines Progressive Web App (PWA) powered by trusted journalism sources and fact-checking agencieis. Headly encourages the global fighting against misinformation.
+Memeh is a breaking news headlines application powered by trusted journalism sources and fact-checking agencies. Memeh encourages the global fighting against misinformation.
 
-- **News headlines** — Breaking news headlines.
+- **News headlines** — Breaking news headlines from multiple sources.
 
-- **Trusted** — Renowned journalism sources focused in liberty of expression, democracy, human rights and critical sense.
+- **Trusted** — Renowned journalism sources focused on liberty of expression, democracy, human rights and critical sense.
 
-- **Internationalized** — Editions available by country.
+- **Internationalized** — Editions available by country (English, Portuguese BR, Portuguese PT).
 
-- **Accessible** — Free access journalism above paywall, fast on slow internet connections and high contrast.
+- **Accessible** — Free access journalism, fast on slow internet connections and high contrast support.
 
 - **Fact check** — Features fact-checking by international recognized agencies.
+
+- **Modern Stack** — Built with Next.js 16, React 19, and TypeScript.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 with App Router
+- **React**: 19.x
+- **Language**: TypeScript 5.3
+- **Styling**: CSS Modules
+- **Feed Parsing**: RSS Parser
+- **i18n**: Locale-based using browser language and localStorage
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+
+```bash
+npm run build
+npm start
+```
+
+## 📁 Project Structure
+
+```
+memeh/
+├── app/                # Next.js App Router (all routes and layouts)
+│   ├── layout.tsx      # Root layout with meta tags and providers
+│   ├── page.tsx        # Homepage with feed sections
+│   ├── about/          # About page
+│   ├── contribute/     # Contribution page
+│   └── api/            # API routes
+│       └── feed/
+│           └── route.ts    # RSS feed API endpoint
+├── components/         # React components (client & server)
+│   ├── Header.tsx      # Navigation header
+│   ├── Footer.tsx      # Footer with locale selector
+│   ├── CardFeed.tsx    # Feed card component
+│   └── ...
+├── locales/            # i18n translation files and feed source configs
+│   ├── en.ts
+│   ├── pt-BR.ts
+│   ├── pt-PT.ts
+│   └── feeds/          # Feed URLs by country and category
+├── lib/                # Utility functions and helpers
+├── styles/             # Global and CSS Module styles
+├── public/             # Static assets (icons, manifest.json, logos)
+└── tsconfig.json       # TypeScript configuration with path aliases
+```
 
 ## 🧡 Contribute
 
 [Become a sponsor](https://github.com/sponsors/lucasm) to help maintain active development and get benefits as early Beta access!
 
-- [Wiki](https://github.com/lucasm/headly/wiki) for documentation.
-- [Discussions](https://github.com/lucasm/headly/discussions) for general topics by community.
-- [Projects](https://github.com/lucasm/headly/projects/1?fullscreen=true) for development backlog.
+- [Wiki](https://github.com/lucasm/memeh/wiki) for documentation.
+- [Discussions](https://github.com/lucasm/memeh/discussions) for general topics by community.
+- [Projects](https://github.com/lucasm/memeh/projects) for development backlog.
 
 Developers, feel free to open a new issue or send pull requests for bug fixes and features.
 
 ## 📜 Legal
 
-Made by [Lucas Menezes](https://lucasm.dev/?utm_source=headly_repo). All rights reserved to external news sources and trademarks.
+Made by [Lucas Menezes](https://lucasm.dev/?utm_source=memeh_repo). All rights reserved to external news sources and trademarks.

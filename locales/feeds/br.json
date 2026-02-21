@@ -1,21 +1,22 @@
 {
   "news": [
     {
+      "name": "G1",
+      "url": "https://pox.globo.com/rss/g1/politica/"
+    },
+    {
       "name": "BBC",
       "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
       "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCthbIFAxbXTTQEC7EcQvP1Q"
     },
     {
-      "name": "G1",
-      "url": "https://pox.globo.com/rss/g1/politica/"
-    },
-    {
-      "name": "Folha",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:folha.uol.com.br&hl=pt-BR&gl=BR"
+      "name": "UOL",
+      "url": "https://news.google.com/rss/search?q=when:72h+allinurl:noticias.uol.com.br&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVFbXI6Gu8U2f9Gjtxw4A-Q"
     },
     {
       "name": "CNN",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:cnnbrasil.com.br&hl=pt-BR&gl=BR"
+      "url": "https://www.cnnbrasil.com.br/feed"
     },
     {
       "name": "Estadão",
@@ -34,9 +35,8 @@
       "url": "https://www.cartacapital.com.br/feed/"
     },
     {
-      "name": "UOL",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:noticias.uol.com.br&hl=pt-BR&gl=BR",
-      "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVFbXI6Gu8U2f9Gjtxw4A-Q"
+      "name": "Folha",
+      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:folha.uol.com.br&hl=pt-BR&gl=BR"
     },
     {
       "name": "O Globo",
@@ -48,11 +48,11 @@
     },
     {
       "name": "Revista Fórum",
-      "url": "https://revistaforum.com.br/rss/feed.html?r=1"
+      "url": "https://revistaforum.com.br/feed"
     },
     {
       "name": "The Intercept",
-      "url": "https://theintercept.com/feed/?lang=pt"
+      "url": "https://www.intercept.com.br/feed/"
     },
     {
       "name": "Agência Pública",
@@ -70,7 +70,7 @@
   "check": [
     {
       "name": "Agência Lupa",
-      "url": "https://piaui.folha.uol.com.br/lupa/feed/"
+      "url": "https://www.agencialupa.org/feed/"
     },
     {
       "name": "Aos Fatos",
@@ -96,7 +96,7 @@
     },
     {
       "name": "Gizmodo",
-      "url": "https://gizmodo.uol.com.br/feed/"
+      "url": "https://www.gizmodo.com.br/feed"
     },
     {
       "name": "Olhar Digital",
@@ -116,7 +116,7 @@
     },
     {
       "name": "Uol Tilt",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:uol.com.br/tilt&hl=pt-BR&gl=BR"
+      "url": "https://news.google.com/rss/search?q=when:72h+allinurl:uol.com.br/tilt&hl=pt-BR&gl=BR"
     },
     {
       "name": "TudoCelular",
@@ -124,14 +124,10 @@
     },
     {
       "name": "Diolinux",
-      "url": "https://feeds.feedburner.com/Diolinux"
+      "url": "https://diolinux.com.br/feed"
     }
   ],
   "biz": [
-    {
-      "name": "Exame",
-      "url": "https://exame.com/feed/"
-    },
     {
       "name": "Valor",
       "url": "https://pox.globo.com/rss/valor"
@@ -141,16 +137,28 @@
       "url": "https://www.infomoney.com.br/feed/"
     },
     {
-      "name": "Investing",
-      "url": "https://br.investing.com/rss/news.rss"
-    },
-    {
       "name": "Forbes",
       "url": "https://www.forbes.com.br/feed/"
     },
     {
+      "name": "Investing",
+      "url": "https://br.investing.com/rss/news.rss"
+    },
+    {
+      "name": "Exame",
+      "url": "https://exame.com/feed/"
+    },
+    {
       "name": "Bloomberg",
       "url": "https://news.google.com/rss/search?q=when:24h+allinurl:bloomberglinea.com.br&hl=pt-BR&gl=BR"
+    },
+    {
+      "name": "Brazil Journal",
+      "url": "https://braziljournal.com/feed"
+    },
+    {
+      "name": "NeoFeed",
+      "url": "https://neofeed.com.br/feed/"
     },
     {
       "name": "Money Times",
@@ -161,10 +169,6 @@
       "url": "https://www.seudinheiro.com/feed/"
     },
     {
-      "name": "NeoFeed",
-      "url": "https://neofeed.com.br/feed/"
-    },
-    {
       "name": "InvestNews",
       "url": "https://investnews.com.br/feed/"
     },
@@ -172,7 +176,10 @@
       "name": "EInvestidor",
       "url": "https://einvestidor.estadao.com.br/feed/"
     },
-
+    {
+      "name": "Times Brasil",
+      "url": "https://timesbrasil.com.br/feed/"
+    },
     {
       "name": "Startups",
       "url": "https://startups.com.br/feed/"
@@ -253,12 +260,12 @@
       "url": "https://news.google.com/rss/search?q=when:24h+allinurl:uol.com.br/splash&hl=pt-BR&gl=BR"
     },
     {
-      "name": "PurePeople",
-      "url": "https://www.purepeople.com.br/rss/news_t0.xml"
+      "name": "Purepeople",
+      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:purepeople.com.br&hl=pt-BR&gl=BR"
     },
     {
       "name": "O Fuxico",
-      "url": "https://www.ofuxico.com.br/feed/"
+      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:ofuxico.com.br&hl=pt-BR&gl=BR"
     },
     {
       "name": "POPline",
@@ -280,7 +287,7 @@
     },
     {
       "name": "Mega Curioso",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:megacurioso.com.br&hl=pt-BR&gl=BR"
+      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:megacurioso.com.br"
     },
     {
       "name": "VivaBem",
@@ -310,7 +317,7 @@
     },
     {
       "name": "Reddit",
-      "url": "https://www.reddit.com/r/brasil/.rss"
+      "url": "https://www.reddit.com/r/MemesBR.rss"
     },
     {
       "name": "Nao Intendo",
@@ -318,6 +325,6 @@
     }
   ],
   "filter": {
-    "keywords": "/ - Exame Notícias| - Folha| - CNN Brasil| - O Globo| - UOL Confere| - UOL| - Estadão| - Bloomberg Línea| - Omelete| - AdoroCinema| - Rolling Stone Brasil| - VivaBem| - Tilt| - Mega Curioso | - Revista Galileu| - NerdBunker - NerdBunker| - NerdBunker/"
+    "keywords": "/ - Exame Notícias| - Folha de S.Paulo| - CNN Brasil| - O Globo| - Globo| - UOL Confere| - UOL Notícias| - uol.com.br| - Estadão| - Bloomberg Brasil| - Bloomberg Línea Brasil| - Omelete| - AdoroCinema| - Rolling Stone Brasil| - VivaBem| - Tilt| - Mega Curioso| - Revista Galileu| - NerdBunker| - purepeople.com.br| - OFuxico/"
   }
 }

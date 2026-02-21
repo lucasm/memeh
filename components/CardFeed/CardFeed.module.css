@@ -1,6 +1,3 @@
-/*
-  Card Feed
-*/
 .feed {
   display: flex;
   flex-direction: row;
@@ -20,11 +17,8 @@
   background: var(--color-translucent);
   box-sizing: border-box;
   transition: all 0.25s;
-  border-radius: 1rem;
+  border-radius: 2rem;
   overflow: hidden;
-}
-.feed div:not(:first-child) {
-  box-shadow: var(--shadow);
 }
 
 .feed figure {

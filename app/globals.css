@@ -63,20 +63,25 @@ svg,
 
 html {
   scroll-behavior: smooth;
-}
-html,
-body,
-main,
-.page {
-  position: relative;
   height: 100%;
 }
 body {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   text-align: center;
   font-family: var(--font);
   font-size: 0;
   background: #fff;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.page {
+  position: relative;
+  height: 100%;
 }
 
 header {
@@ -438,22 +443,19 @@ footer a svg {
   width: 38px;
   margin: 0 auto;
   display: block;
-}
-footer a .svg {
   fill: var(--color-gray);
 }
 
 footer select {
   opacity: var(--opacity);
 }
-
+footer a:hover svg,
+footer a:focus svg {
+  fill: var(--color-black);
+}
 footer a:hover,
 footer a:focus {
   color: var(--color-black);
-}
-footer a:hover .svg,
-footer a:focus .svg {
-  fill: var(--color-black);
 }
 footer select:hover,
 footer select:focus {

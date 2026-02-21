@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import Loader from './Loader'
+import Loader from './Loader/Loader'
 
 type Props = {
-  country: string
-  category: string
-  name: string
+  readonly country: string
+  readonly category: string
+  readonly name: string
 }
 
-export default function CardFeedFetch(props: Props) {
+export default function CardFeedFetch(props: Readonly<Props>) {
   const [data, setData] = useState<any>([])
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -27,7 +27,7 @@ export default function CardFeedFetch(props: Props) {
         setData([
           {
             title: 'Ooopss!',
-            link: 'mailto:feedback@headly.app?subject=Feedback&body=Error%20in%20frontend%20of%20' + props.name,
+            link: 'mailto:feedback@memeh.app?subject=Feedback&body=Error%20in%20frontend%20of%20' + props.name,
           },
         ])
       })

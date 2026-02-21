@@ -1,50 +1,31 @@
-import { useRouter } from 'next/router'
-import PageLayout from '../components/PageLayout'
-import CardFeed from '../components/CardFeed'
+'use client'
+
+import { useParams } from 'next/navigation'
+import CardFeed from '@/components/CardFeed/CardFeed'
+import { getLocaleFromParams } from '@/lib/locale-utils'
 
 // locales
-import en from '../locales/en'
-import pt_BR from '../locales/pt-BR'
-import pt_PT from '../locales/pt-PT'
+import en from '@/locales/en'
+import pt_BR from '@/locales/pt-BR'
+import pt_PT from '@/locales/pt-PT'
 
-export default function Index() {
-  // defaults
-  const router = useRouter()
-  const { locale } = router
-  var t
+const localesMap = {
+  en,
+  'pt-BR': pt_BR,
+  'pt-PT': pt_PT,
+}
 
-  // locale
-  if (locale === 'pt-BR') {
-    t = pt_BR
-  } else if (locale === 'pt-PT') {
-    t = pt_PT
-  } else {
-    t = en
-  }
-  console.log('LOCALE', locale)
+type Locale = keyof typeof localesMap
+
+export default function HomePage() {
+  const params = useParams()
+  const lang = params.lang as string
+
+  const locale = getLocaleFromParams(lang) as Locale
+  const t = localesMap[locale]
 
   return (
-    <PageLayout
-      title={t.title}
-      description={t.description}
-      legal={t.legal}
-      about={t.about}
-      privacy={t.privacy}
-      feedback={t.feedback}
-      edition={t.edition}
-      credits={t.credits}
-      contribute={t.contribute}
-      donate={t.donate}
-      news={t.news}
-      check={t.check}
-      tech={t.tech}
-      biz={t.biz}
-      sport={t.sport}
-      cult={t.cult}
-      geek={t.geek}
-      sci={t.sci}
-      dscvr={t.dscvr}>
-      {/* <FetchFeeds country="us" category="news"/> */}
+    <div className="PageLayout">
       <section id="news">
         <div className="feedSection">
           <h2>{t.news}</h2>
@@ -107,6 +88,6 @@ export default function Index() {
           <CardFeed country={t.country} category="dscvr" />
         </div>
       </section>
-    </PageLayout>
+    </div>
   )
 }

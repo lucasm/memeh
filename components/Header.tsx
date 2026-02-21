@@ -1,22 +1,37 @@
-import Link from 'next/link'
-import { useState } from 'react'
+'use client'
 
-export default function Header(props) {
+import { useState } from 'react'
+import Link from 'next/link'
+import { useLocale } from '@/lib/i18n'
+
+// locales
+import en from '@/locales/en'
+import pt_BR from '@/locales/pt-BR'
+import pt_PT from '@/locales/pt-PT'
+import { IconMemeh } from '@/components/Icons'
+
+const localesMap = {
+  en,
+  'pt-BR': pt_BR,
+  'pt-PT': pt_PT,
+}
+
+type LocaleKey = keyof typeof localesMap
+
+export default function Header() {
   const [isActive, setActive] = useState<boolean>(false)
+  const locale = useLocale() as LocaleKey
+  const t = localesMap[locale]
 
   function handleToggle() {
     setActive(!isActive)
   }
 
   return (
-    <header>
-      <Link href="/">
-        <a id="logo" aria-label="homepage">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-            <path d="M157.9,47.37l4.67-42.1H17.74L.2,163.15c-1.94,17.44,10.63,31.58,28.07,31.58h134.3c11.63,0,22.1-9.42,23.39-21L200,47.37ZM116.28,141.8H95.17V111.22H65V141.8H43.74V59.21H65V91.09H95.17V59.21h21.11Zm49.8,21.35a12.06,12.06,0,0,1-11.69,10.53A9.24,9.24,0,0,1,145,163.15l10.53-94.73h21.05Z" />
-          </svg>
-          Headly
-        </a>
+    <header suppressHydrationWarning>
+      <Link href="/" id="logo" aria-label="homepage">
+        <IconMemeh/>
+        Memeh
       </Link>
 
       <button onClick={handleToggle} className={isActive ? 'open' : undefined} id="menu" type="button">
@@ -27,53 +42,53 @@ export default function Header(props) {
         <ul>
           <li>
             <a href="#news" onClick={handleToggle}>
-              {props.news}
+              {t.news}
             </a>
           </li>
           <li>
             <a href="#biz" onClick={handleToggle}>
-              {props.biz}
+              {t.biz}
             </a>
           </li>
           <li>
             <a href="#tech" onClick={handleToggle}>
-              {props.tech}
+              {t.tech}
             </a>
           </li>
           <li>
             <a href="#sport" onClick={handleToggle}>
-              {props.sport}
+              {t.sport}
             </a>
           </li>
           <li>
             <a href="#cult" onClick={handleToggle}>
-              {props.cult}
+              {t.cult}
             </a>
           </li>
           <li>
             <a href="#geek" onClick={handleToggle}>
-              {props.geek}
+              {t.geek}
             </a>
           </li>
           <li>
             <a href="#sci" onClick={handleToggle}>
-              {props.sci}
+              {t.sci}
             </a>
           </li>
           <li>
             <a href="#check" onClick={handleToggle}>
-              {props.check}
+              {t.check}
             </a>
           </li>
           <li>
             <a href="#dscvr" onClick={handleToggle}>
-              {props.dscvr}
+              {t.dscvr}
             </a>
           </li>
         </ul>
 
         <a href="https://github.com/sponsors/lucasm" target="_blank" rel="external noopener noreferrer" className="button">
-          ♥&#160;&#160;{props.donate}
+          ♥&#160;&#160;{t.donate}
         </a>
       </nav>
 
