@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import SelectLocale from './SelectLocale'
-import { IconMemeh } from '@/components/Icons'
+import { IconAspiral } from '@/components/Icons'
 
 export default function Footer() {
   const t = useTranslations()
@@ -12,8 +12,8 @@ export default function Footer() {
     <footer suppressHydrationWarning>
       <div className="container">
         <Link href="/" aria-label="homepage" className="logo">
-          <IconMemeh />
-          Memeh
+          <IconAspiral />
+          Aspiral
         </Link>
 
         <p>{t('title')}</p>
@@ -22,7 +22,7 @@ export default function Footer() {
 
         <p>
           {t('legal')} {t('credits')}{' '}
-          <a href="https://lucasm.dev/?utm_source=memeh_app" target="_blank" rel="external noreferrer">
+          <a href="https://lucasm.dev/?utm_source=aspiral_app" target="_blank" rel="external noreferrer">
             Lucas Maués
           </a>
           .
@@ -35,7 +35,7 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <a href="https://github.com/lucasm/memeh" target="_blank" rel="external noopener noreferrer">
+            <a href="https://github.com/lucasm/aspiral" target="_blank" rel="external noopener noreferrer">
               {t('about')}
             </a>
           </li>
@@ -46,7 +46,7 @@ export default function Footer() {
           </li>
 
           <li>
-            <a href="mailto:feedback@memeh.app?subject=Feedback">{t('feedback')}</a>
+            <a href="mailto:feedback@aspiral.app?subject=Feedback">{t('feedback')}</a>
           </li>
         </ul>
       </div>

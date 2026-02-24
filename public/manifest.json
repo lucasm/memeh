@@ -1,14 +1,11 @@
 {
-  "name": "Memeh",
-  "short_name": "Memeh",
-  "description": "Memeh is a news reader with trusted journalism without algorithms. Be critical. Fight against misinformation. ",
+  "name": "Aspiral",
+  "short_name": "Aspiral",
+  "description": "Aspiral is a news reader with trusted journalism and without algorithms. Be critical. Fight against misinformation. ",
+  "start_url": "/?utm_source=pwa",
+  "id": "/?utm_source=pwa",
   "author": "Lucas Maués",
   "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
-    },
     {
       "src": "icon.svg",
       "sizes": "any",
@@ -16,24 +13,43 @@
       "purpose": "any"
     },
     {
-      "src": "icon-192x192.png",
+      "src": "/icon-192x192.png",
+      "type": "image/png",
       "sizes": "192x192",
-      "type": "image/png"
+      "purpose": "any"
     },
     {
-      "src": "icon-512x512.png",
+      "src": "/icon-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "type": "image/png",
       "sizes": "512x512",
-      "type": "image/png"
+      "purpose": "any"
     },
     {
-      "src": "maskable-icon.png",
+      "src": "/icon-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-1024x1024.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-1024x1024-maskable.png",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "id": "/?utm_source=pwa",
-  "start_url": "/?utm_source=pwa",
+
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",

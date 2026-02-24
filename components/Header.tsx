@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { IconMemeh } from '@/components/Icons'
+import { IconAspiral } from '@/components/Icons'
 import { Button, Space } from '@mantine/core'
 
 export default function Header() {
@@ -17,8 +17,8 @@ export default function Header() {
   return (
     <header suppressHydrationWarning>
       <Link href="/" id="logo" aria-label="homepage">
-        <IconMemeh />
-        Memeh
+        <IconAspiral />
+        Aspiral
       </Link>
 
       <button onClick={handleToggle} className={isActive ? 'open' : undefined} id="menu" type="button">

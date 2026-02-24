@@ -47,21 +47,21 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
 
   const t = await getTranslations({ locale, namespace: undefined })
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://memeh.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://aspiral.app'
   const canonicalUrl = `${baseUrl}/${locale === 'en' ? '' : locale}`
 
   return {
     metadataBase: new URL(baseUrl),
     title: {
       default: t('title'),
-      template: '%s | Memeh',
+      template: '%s | Aspiral',
     },
     description: t('description'),
-    keywords: ['news', 'headlines', 'feeds', 'rss', 'memeh', 'journalism', 'fact-checking', 'news aggregator'],
-    authors: [{ name: 'Memeh', url: baseUrl }],
-    creator: 'Memeh Team',
-    publisher: 'Memeh',
-    applicationName: 'Memeh',
+    keywords: ['news', 'headlines', 'feeds', 'rss', 'aspiral', 'journalism', 'fact-checking', 'news aggregator'],
+    authors: [{ name: 'Aspiral', url: baseUrl }],
+    creator: 'Aspiral Team',
+    publisher: 'Aspiral',
+    applicationName: 'Aspiral',
     abstract: t('description'),
     icons: {
       icon: [{ url: '/favicon.ico' }, { url: '/icon.svg', type: 'image/svg+xml' }],
@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
     appleWebApp: {
       capable: true,
       statusBarStyle: 'default',
-      title: 'Memeh',
+      title: 'Aspiral',
     },
     formatDetection: { telephone: false, email: false, address: false },
     alternates: {
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       locale,
       alternateLocale: routing.locales.filter((l) => l !== locale),
       url: canonicalUrl,
-      siteName: 'Memeh',
+      siteName: 'Aspiral',
       title: t('title'),
       description: t('description'),
       images: [
@@ -99,7 +99,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
           url: `${baseUrl}/share.png`,
           width: 1200,
           height: 630,
-          alt: 'Memeh news feed - trusted news and memes',
+          alt: 'Aspiral news feed - trusted news and memes',
           type: 'image/png',
           secureUrl: `${baseUrl}/share.png`,
         },
@@ -107,8 +107,8 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@memeh_news',
-      creator: '@memeh_news',
+      site: '@aspiral_news',
+      creator: '@aspiral_news',
       title: t('title'),
       description: t('description'),
       images: [`${baseUrl}/share.png`],

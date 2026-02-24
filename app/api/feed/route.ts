@@ -64,7 +64,7 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
     if (!feedCountry[category] || Array.isArray(feedCountry.filter)) {
       return {
         title: 'Error',
-        link: 'mailto:feedback@memeh.app?subject=Memeh%20Feedback&body=Invalid%20category',
+        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Invalid%20category',
       } as unknown as FeedResponse[]
     }
 
@@ -120,7 +120,7 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
     return [
       {
         title: 'Error',
-        link: 'mailto:feedback@memeh.app?subject=Memeh%20Feedback&body=Error%20getting%20feeds',
+        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20getting%20feeds',
       } as unknown as FeedResponse,
     ]
   }
@@ -138,7 +138,7 @@ async function getByName(country: string, category: string, name: string): Promi
       return [
         {
           title: 'Error',
-          link: 'mailto:feedback@memeh.app?subject=Memeh%20Feedback&body=Invalid%20category',
+          link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Invalid%20category',
         } as unknown as FeedResponse,
       ]
     }
@@ -156,7 +156,7 @@ async function getByName(country: string, category: string, name: string): Promi
       return [
         {
           title: 'Error',
-          link: `mailto:feedback@memeh.app?subject=Memeh%20Feedback&body=Feed%20not%20found:%20${name}`,
+          link: `mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Feed%20not%20found:%20${name}`,
         } as unknown as FeedResponse,
       ]
     }
@@ -185,7 +185,7 @@ async function getByName(country: string, category: string, name: string): Promi
     return [
       {
         title: 'Error',
-        link: 'mailto:feedback@memeh.app?subject=Memeh%20Feedback&body=Error%20parsing%20feed',
+        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20parsing%20feed',
       } as unknown as FeedResponse,
     ]
   }

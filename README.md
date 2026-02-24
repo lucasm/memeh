@@ -1,23 +1,23 @@
 <div align="center">
-<a href="https://memeh.app/">
-<img height="128" src="https://memeh.vercel.app/images/memeh-logo-color.svg">
+<a href="https://aspiral.app/">
+<img height="128" src="https://aspiral.app/icon.svg">
 </a>
 </div>
 <h1 align="center">
-<a href="https://memeh.app/">Memeh</a>
+<a href="https://aspiral.app/">Aspiral</a>
 </h1>
 <p align="center">
 <img alt="Languages" src="https://img.shields.io/badge/languages available-3-ffde17">
-<img alt="License" src="https://img.shields.io/github/license/lucasm/memeh?color=ff7157">
-<img alt="Issues" src="https://img.shields.io/github/issues/lucasm/memeh?color=ff4e66">
+<img alt="License" src="https://img.shields.io/github/license/lucasm/aspiral?color=ff7157">
+<img alt="Issues" src="https://img.shields.io/github/issues/lucasm/aspiral?color=ff4e66">
 </p>
 <p align="center">
 Trusted journalism to fight against misinformation <br>
 </p>
 
-## 📰 Memeh.app
+## 📰 Aspiral.app
 
-Memeh is a breaking news headlines application powered by trusted journalism sources and fact-checking agencies. Memeh encourages the global fighting against misinformation.
+Aspiral is a breaking news headlines application powered by trusted journalism sources and fact-checking agencies. Aspiral encourages the global fighting against misinformation.
 
 - **News headlines** — Breaking news headlines from multiple sources.
 
@@ -43,6 +43,7 @@ Memeh is a breaking news headlines application powered by trusted journalism sou
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 
@@ -70,7 +71,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-memeh/
+aspiral/
 ├── app/                # Next.js App Router (all routes and layouts)
 │   ├── layout.tsx      # Root layout with meta tags and providers
 │   ├── page.tsx        # Homepage with feed sections
@@ -99,12 +100,12 @@ memeh/
 
 [Become a sponsor](https://github.com/sponsors/lucasm) to help maintain active development and get benefits as early Beta access!
 
-- [Wiki](https://github.com/lucasm/memeh/wiki) for documentation.
-- [Discussions](https://github.com/lucasm/memeh/discussions) for general topics by community.
-- [Projects](https://github.com/lucasm/memeh/projects) for development backlog.
+- [Wiki](https://github.com/lucasm/aspiral/wiki) for documentation.
+- [Discussions](https://github.com/lucasm/aspiral/discussions) for general topics by community.
+- [Projects](https://github.com/lucasm/aspiral/projects) for development backlog.
 
 Developers, feel free to open a new issue or send pull requests for bug fixes and features.
 
 ## 📜 Legal
 
-Made by [Lucas Menezes](https://lucasm.dev/?utm_source=memeh_repo). All rights reserved to external news sources and trademarks.
+Made by [Lucas Menezes](https://lucasm.dev/?utm_source=aspiral_repo). All rights reserved to external news sources and trademarks.

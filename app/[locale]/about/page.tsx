@@ -7,7 +7,7 @@ export default async function AboutPage() {
     <section className="fullscreen">
       <div className="fullscreen-container">
         <div className="container">
-          <h1>Memeh</h1>
+          <h1>Aspiral</h1>
           <p>{t('description')}</p>
         </div>
       </div>
