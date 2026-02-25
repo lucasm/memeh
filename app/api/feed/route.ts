@@ -3,30 +3,14 @@ import Parser from 'rss-parser'
 
 const parser = new Parser()
 
-const UA_GOOGLEBOT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
-const UA_BROWSER = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
-
 /**
  * Fetches an RSS/Atom feed URL respecting the encoding declared in the XML
  * header (e.g. ISO-8859-1). Falls back to UTF-8 when no declaration is found.
  * Passes the correctly-decoded string to parser.parseString() so that
  * characters like ã, ç, º are never garbled.
- *
- * If the server returns 403 with the Googlebot UA (anti-bot policy),
- * automatically retries once with a real browser UA.
  */
 async function parseURLWithEncoding(url: string): ReturnType<typeof parser.parseURL> {
-  let response = await fetch(url, {
-    headers: { 'User-Agent': UA_GOOGLEBOT },
-  })
-
-  // Some sites (e.g. forbes.com.br) block known bots but allow real browsers.
-  // Retry once with a browser UA before giving up.
-  if (response.status === 403) {
-    response = await fetch(url, {
-      headers: { 'User-Agent': UA_BROWSER },
-    })
-  }
+  const response = await fetch(url)
 
   if (!response.ok) {
     throw new Error(`HTTP ${response.status} fetching feed: ${url}`)
