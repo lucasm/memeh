@@ -8,9 +8,27 @@ const parser = new Parser({
   },
 })
 
+const ISO_CHARSET_RE = /charset\s*=\s*iso-8859-1/i
+const XML_ENCODING_RE = /<\?xml[^>]+encoding\s*=\s*["']([^"']+)["']/i
+
+/**
+ * Retenta uma função async até `retries` vezes com backoff exponencial.
+ * Cada tentativa aguarda o dobro do tempo da anterior (ex: 300ms → 600ms → 1200ms).
+ */
+async function withRetry<T>(fn: () => Promise<T>, retries = 3, delayMs = 300): Promise<T> {
+  try {
+    return await fn()
+  } catch (err) {
+    if (retries <= 0) throw err
+    await new Promise((resolve) => setTimeout(resolve, delayMs))
+    return withRetry(fn, retries - 1, delayMs * 2)
+  }
+}
+
 interface IFeedFile {
   name: string
   url: string
+  legacyFeed?: boolean
 }
 
 interface FeedFilter {
@@ -31,9 +49,6 @@ interface FeedResponse {
   title?: string
   link?: string
 }
-
-const ISO_CHARSET_RE = /charset\s*=\s*iso-8859-1/i
-const XML_ENCODING_RE = /<\?xml[^>]+encoding\s*=\s*["']([^"']+)["']/i
 
 /**
  * Detect whether raw XML bytes are ISO-8859-1 encoded.
@@ -66,13 +81,18 @@ function stripHtml(html: string): string {
 }
 
 /**
- * Fetch + parse an RSS feed, auto-detecting ISO-8859-1 encoding.
+ * Fetch + parse an RSS feed, optionally handling ISO-8859-1 encoding for legacy feeds.
  *
- * Some feeds (rss.uol.com.br, feeds.folha.uol.com.br, …) serve ISO-8859-1
- * encoded XML. rss-parser's parseURL() assumes UTF-8, mangling accented chars.
- * We always fetch the raw bytes, detect the encoding, and fix it before parsing.
+ * @param url - The RSS feed URL
+ * @param isLegacy - If true, handles ISO-8859-1 encoding (UOL, Folha feeds)
  */
-async function fetchAndParseFeed(url: string): Promise<Parser.Output<{ description?: string }>> {
+async function fetchAndParseFeed(url: string, isLegacy: boolean): Promise<Parser.Output<{ description?: string }>> {
+  if (!isLegacy) {
+    // Modern feeds: use standard parseURL
+    return parser.parseURL(url)
+  }
+
+  // Legacy feeds: fetch raw bytes and handle ISO-8859-1
   const response = await fetch(url)
   const buffer = await response.arrayBuffer()
   const contentType = response.headers.get('content-type')
@@ -97,7 +117,8 @@ async function fetchAndParseFeed(url: string): Promise<Parser.Output<{ descripti
 /**
  * Remove filtered keywords from title
  */
-function applyFilter(title: string, filterRegex: RegExp | null): string {
+function applyFilter(title: string | undefined, filterRegex: RegExp | null): string {
+  if (!title) return ''
   if (!filterRegex) return title
   return title.replace(filterRegex, '').trim()
 }
@@ -143,11 +164,11 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
     const ids: string[] = []
     const theFeed: Array<{ title: string | undefined; items: any[] }> = []
 
-    // Parse all RSS feeds in parallel
+    // Parse all RSS feeds in parallel, cada um com retry independente
     const feeds = await Promise.all(
       feedArray.map((item: IFeedFile) => {
         ids.push(item.name)
-        return fetchAndParseFeed(item.url)
+        return withRetry(() => fetchAndParseFeed(item.url, item.legacyFeed || false))
       })
     )
 
@@ -215,12 +236,14 @@ async function getByName(country: string, category: string, name: string): Promi
       ]
     }
 
-    // Find the feed URL by name
+    // Find the feed URL and legacyFeed flag by name
     let feedUrl = ''
+    let isLegacy = false
     const feedArray = feedCountry[category] as IFeedFile[]
     feedArray.forEach((item) => {
       if (item.name === name) {
         feedUrl = item.url
+        isLegacy = item.legacyFeed ?? false
       }
     })
 
@@ -237,15 +260,16 @@ async function getByName(country: string, category: string, name: string): Promi
     const filterConfig = feedCountry.filter as FeedFilter | undefined
     const filterRegex = filterConfig?.keywords ? parseFilterString(filterConfig.keywords) : null
 
-    // Parse the feed
-    const feed = await fetchAndParseFeed(feedUrl)
+    // Parse the feed using ISO-8859-1 decoder if needed
+    const feed = await fetchAndParseFeed(feedUrl, isLegacy)
 
     const result: FeedResponse[] = []
     feed.items.slice(0, 4).forEach((item) => {
-      // Fall back to plain-text description when title is absent (UOL vueland)
+      // Some UOL feeds omit <title> – fall back to plain-text description
       const rawTitle = item.title || (item.description ? stripHtml(item.description as string) : '')
-      // Fall back to guid when link is absent
+      // Some UOL feeds omit <link> – fall back to <guid>
       const link = item.link || item.guid || ''
+
       if (rawTitle && link) {
         const cleanedTitle = applyFilter(rawTitle, filterRegex)
         result.push({

@@ -15,7 +15,8 @@
     },
     {
       "name": "Folha",
-      "url": "https://feeds.folha.uol.com.br/poder/rss091.xml"
+      "url": "https://feeds.folha.uol.com.br/poder/rss091.xml",
+      "legacyFeed": true
     },
     {
       "name": "Estadão",
@@ -36,7 +37,8 @@
     {
       "name": "UOL",
       "url": "https://www.uol.com.br/vueland/api/?loadComponent=XmlFeedRss",
-      "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVFbXI6Gu8U2f9Gjtxw4A-Q"
+      "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVFbXI6Gu8U2f9Gjtxw4A-Q",
+      "legacyFeed": true
     },
     {
       "name": "O Globo",
@@ -149,7 +151,8 @@
 
     {
       "name": "UOL Tilt",
-      "url": "https://rss.uol.com.br/feed/tecnologia.xml"
+      "url": "https://rss.uol.com.br/feed/tecnologia.xml",
+      "legacyFeed": true
     },
     {
       "name": "TudoCelular",
@@ -314,7 +317,8 @@
     },
     {
       "name": "UOL Splash",
-      "url": "https://rss.uol.com.br/feed/entretenimento.xml"
+      "url": "https://rss.uol.com.br/feed/entretenimento.xml",
+      "legacyFeed": true
     },
     {
       "name": "Purepeople",
@@ -374,7 +378,8 @@
     },
     {
       "name": "Reddit",
-      "url": "https://www.reddit.com/r/MemesBR.rss"
+      "url": "https://www.reddit.com/r/MemesBR.rss",
+      "legacyFeed": true
     },
     {
       "name": "Nao Intendo",
