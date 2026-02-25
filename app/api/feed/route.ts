@@ -3,14 +3,23 @@ import Parser from 'rss-parser'
 
 const parser = new Parser()
 
+const UA_BROWSER = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36'
+
 /**
- * Fetches an RSS/Atom feed URL respecting the encoding declared in the XML
- * header (e.g. ISO-8859-1). Falls back to UTF-8 when no declaration is found.
- * Passes the correctly-decoded string to parser.parseString() so that
- * characters like ã, ç, º are never garbled.
+ * Faz o fetch do feed. Em caso de 403 (bloqueio por IP de datacenter),
+ * faz fallback via allorigins.win que usa IPs residenciais/diferentes.
  */
-async function parseURLWithEncoding(url: string): ReturnType<typeof parser.parseURL> {
-  const response = await fetch(url)
+async function fetchFeed(url: string): Promise<{ buffer: ArrayBuffer; contentType: string }> {
+  let response = await fetch(url, {
+    headers: { 'User-Agent': UA_BROWSER },
+  })
+
+  if (response.status === 403) {
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+    response = await fetch(proxyUrl, {
+      headers: { 'User-Agent': UA_BROWSER },
+    })
+  }
 
   if (!response.ok) {
     throw new Error(`HTTP ${response.status} fetching feed: ${url}`)
@@ -23,7 +32,12 @@ async function parseURLWithEncoding(url: string): ReturnType<typeof parser.parse
     throw new Error(`Feed returned HTML instead of XML (${response.status}): ${url}`)
   }
 
-  const buffer = await response.arrayBuffer()
+  return { buffer: await response.arrayBuffer(), contentType }
+}
+
+async function parseURLWithEncoding(url: string): ReturnType<typeof parser.parseURL> {
+  const { buffer, contentType } = await fetchFeed(url)
+
   const bytes = new Uint8Array(buffer)
 
   // 1. Sniff the XML declaration for an encoding attribute (most authoritative)
