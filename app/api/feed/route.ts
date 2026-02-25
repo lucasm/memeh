@@ -3,33 +3,35 @@ import Parser from 'rss-parser'
 
 const parser = new Parser()
 
-// Vercel Hobby: 10s max. Deixa margem para overhead + fallback proxy.
-export const maxDuration = 10
-
 const UA_BROWSER = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36'
 
-const FETCH_TIMEOUT_MS = 4000
-
-function fetchWithTimeout(url: string, init?: RequestInit): Promise<Response> {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
-  return fetch(url, { ...init, signal: controller.signal }).finally(() => clearTimeout(timer))
-}
+// Cache de 5 minutos: após o primeiro fetch, respostas são servidas instantaneamente.
+const REVALIDATE_SECONDS = 300
 
 /**
- * Faz o fetch do feed com timeout de 4s.
+ * Faz o fetch do feed com cache Next.js (stale-while-revalidate).
  * Em caso de 403 (bloqueio por IP de datacenter),
  * faz fallback via allorigins.win que usa IPs diferentes.
- * Pior caso: 4s (direto) + 4s (proxy) = 8s < 10s (limite Vercel Hobby).
  */
 async function fetchFeed(url: string): Promise<{ buffer: ArrayBuffer; contentType: string }> {
   const headers = { 'User-Agent': UA_BROWSER }
+  const cacheOpts = { next: { revalidate: REVALIDATE_SECONDS } }
 
-  let response = await fetchWithTimeout(url, { headers })
+  let response = await fetch(url, { headers, ...cacheOpts })
 
   if (response.status === 403) {
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-    response = await fetchWithTimeout(proxyUrl, { headers })
+    // Fallback via proxy com timeout de 8s para não estourar o limite de 10s da Vercel Hobby
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 8000)
+
+    try {
+      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+      response = await fetch(proxyUrl, { headers, signal: controller.signal })
+    } catch {
+      throw new Error(`Proxy timeout or failed for: ${url}`)
+    } finally {
+      clearTimeout(timeoutId)
+    }
   }
 
   if (!response.ok) {
