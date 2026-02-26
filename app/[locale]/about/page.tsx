@@ -1,3 +1,4 @@
+import { Button, Space } from '@mantine/core'
 import { getTranslations } from 'next-intl/server'
 
 export default async function AboutPage() {
@@ -8,7 +9,93 @@ export default async function AboutPage() {
       <div className="fullscreen-container">
         <div className="container">
           <h1>Aspiral</h1>
-          <p>{t('description')}</p>
+
+          <article>
+            <h2>Mission & Ownership</h2>
+            <p>
+              <strong>Aspiral</strong> is a tiny Web Application of news headlines of trusted journalism, without algorithms, independent
+              and ad-free.The project was founded by <strong>Lucas Maués</strong>, a Software Engineer from Brazil, and operated by the{' '}
+              <strong>open source community</strong>. Our mission is to provide a high-signal, low-noise information environment by curating
+              the world’s most reputable sources in Technology, Business, Science, Culture, and Global Affairs.
+            </p>
+            <p>
+              Aspiral is a self-funded project, ensuring complete editorial independence from corporate or political interests. We
+              prioritize clarity, transparency, and the user’s right to high-quality information.
+            </p>
+            <h2>Trust Standards & Integrity</h2>
+            <p>
+              We are committed to the <strong>8 Trust Indicators</strong> established by <em>The Trust Project</em>. Unlike traditional
+              aggregators, Aspiral strictly vets every source for its track record of factual reporting and ethical accountability.
+            </p>
+            <ul>
+              <li>
+                <strong>Source Validation:</strong> Every publication in our App (e.g., Reuters, AP, The Atlantic, Nautilus) is manually
+                verified for journalistic excellence.
+              </li>
+              <li>
+                <strong>Algorithm Transparency:</strong> Our curation logic favors primary sources and deep-dive journals. Finally, more
+                general news outlets. We don't have any other type of filters. We provide sources "as is", to avoid biasing the feed with
+                algorithms that may prioritize engagement over quality.
+              </li>
+              <li>
+                <strong>Content Integrity:</strong> We do not modify original headlines or alter the editorial context of the articles we
+                show. We redirect users to the original source.
+              </li>
+
+              <li>
+                <strong>Democracy and Pluralism by Design:</strong> Every source is a counterbalance of another, to provide a balanced
+                spectrum of viewpoints and prevent ideological echo chambers. The App was desgined to show feed in grid, like the old RSS
+                readers, to avoid the "top news" bias of traditional aggregators. We don't have any "top news" section, to avoid privileging
+                some sources over others.
+              </li>
+            </ul>
+            <h2>Editorial Guidelines</h2>
+            <p>
+              Our selection process aims to provide a balanced spectrum of viewpoints to prevent ideological echo chambers. We prioritize:
+            </p>
+            <ul>
+              <li>Global news agencies for immediate, factual reporting.</li>
+              <li>Analytical journals for deep economic, cultural, scientific, and sociological context.</li>
+              <li>Niche publications focused on technology ethics, digital innovation and human rights.</li>
+            </ul>
+            <h2>Accountability & Corrections</h2>
+            <p>
+              We believe in the "Right to Correction." If you identify any source that fails to meet our quality standards or notice
+              technical errors in how content is displayed, please contact us.
+            </p>
+
+            <p>Send an email to:</p>
+
+            <Button component="a" href="mailto:contact@aspiral.com" color="black" size="md">
+              contact@aspiral.app
+            </Button>
+
+            <Space h="lg" />
+
+            <p>
+              <strong>Corrections Policy:</strong> We promptly review reported issues and update our source lists to maintain the integrity
+              of our feed.
+            </p>
+
+            <h2>Technology</h2>
+
+            <ul>
+              <li>RSS Feeds of Sources</li>
+              <li>Next.js React Framework</li>
+              <li>TypeScript Programming Language</li>
+              <li>Vercel Host</li>
+              <li>Cloudflare CDN</li>
+            </ul>
+
+            <h2>Accessibility</h2>
+            <p>
+              Aspiral is committed with Web Accessibility Standards (WCAG) to ensure that our App is usable by everyone, including people
+              with disabilities.{' '}
+            </p>
+            <Button component="a" href="/" color="black" size="md">
+              Go to Aspiral
+            </Button>
+          </article>
         </div>
       </div>
     </section>

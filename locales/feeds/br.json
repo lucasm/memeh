@@ -1,13 +1,13 @@
 {
   "news": [
     {
+      "name": "G1",
+      "url": "https://pox.globo.com/rss/g1/politica/"
+    },
+    {
       "name": "BBC",
       "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
       "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCthbIFAxbXTTQEC7EcQvP1Q"
-    },
-    {
-      "name": "G1",
-      "url": "https://pox.globo.com/rss/g1/politica/"
     },
     {
       "name": "CNN",

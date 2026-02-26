@@ -18,17 +18,19 @@ Trusted journalism to fight against misinformation <br>
 
 ## 📰 Aspiral.app
 
-Aspiral is a breaking news headlines application powered by trusted journalism sources and fact-checking agencies. Aspiral encourages the global fighting against misinformation.
+Aspiral is a feed of breaking news headlines powered by trusted journalism sources and fact-checking agencies. Aspiral encourages the global fighting against misinformation and redirects to original sources.
 
-- **News headlines** — Breaking news headlines from multiple sources.
+- **News Headlines** — Breaking news headlines from multiple sources.
 
 - **Trusted** — Renowned journalism sources focused on liberty of expression, democracy, human rights and critical sense.
 
-- **Fact check** — Features fact-checking by international recognized agencies.
+- **Fact Check** — Features fact-checking by international recognized agencies.
 
 - **Internationalized** — Editions available by country (English, Portuguese BR, Portuguese PT).
 
 - **Accessibility** — Free access journalism, fast on slow internet connections and high contrast support.
+
+- **RSS** — All feeds are backed by RSS technology and redirect to original sources.
 
 ## ❤️ Contribute
 

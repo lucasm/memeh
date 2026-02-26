@@ -34,9 +34,7 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <a href="https://github.com/lucasm/aspiral" target="_blank" rel="external noopener noreferrer">
-              {t('about')}
-            </a>
+            <Link href="/about">{t('about')}</Link>
           </li>
           <li>
             <a href="https://lucasm.dev/legal" target="_blank" rel="external noopener noreferrer">

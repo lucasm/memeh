@@ -117,6 +117,18 @@
       "url": "https://venturebeat.com/feed"
     },
     {
+      "name": "Platformer",
+      "url": "https://www.platformer.news/rss/"
+    },
+    {
+      "name": "Stratechery",
+      "url": "https://stratechery.com/feed"
+    },
+    {
+      "name": "Rest of World",
+      "url": "https://restofworld.org/feed/latest"
+    },
+    {
       "name": "Engadget",
       "url": "https://www.engadget.com/rss.xml"
     },
@@ -131,10 +143,6 @@
     {
       "name": "CNET",
       "url": "https://www.cnet.com/rss/news/"
-    },
-    {
-      "name": "Rest of World",
-      "url": "https://restofworld.org/feed/latest"
     },
     {
       "name": "Futurism",
@@ -277,6 +285,14 @@
     {
       "name": "BuzzFeed",
       "url": "https://www.buzzfeed.com/feed.xml"
+    },
+    {
+      "name": "Aeon",
+      "url": "https://aeon.co/feed.rss"
+    },
+    {
+      "name": "The Atlantic",
+      "url": "https://www.theatlantic.com/feed/channel/culture/"
     }
   ],
   "geek": [
@@ -349,6 +365,10 @@
     {
       "name": "Quanta Magazine",
       "url": "https://api.quantamagazine.org/feed/"
+    },
+    {
+      "name": "Nautilus",
+      "url": "https://nautil.us/feed/"
     }
   ],
   "dscvr": [
