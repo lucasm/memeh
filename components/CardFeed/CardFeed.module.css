@@ -1,9 +1,8 @@
 .feed {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  width: 100%;
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 .feed div {
@@ -41,6 +40,7 @@
   cursor: default;
 }
 .feed ul {
+  width: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -72,44 +72,29 @@
   color: rgb(255 255 255 / 50%);
 }
 
-/* First Top */
-.feed div:first-child {
-  background: transparent;
-  border-radius: 0;
-  padding-top: 0;
-}
-.feed div:first-child ul {
-  flex-wrap: wrap;
-  flex-direction: unset;
-}
-.feed div:first-child li:nth-child(1) {
-  font-size: 8vw;
-}
-
 /* Tablet */
 @media only screen and (min-width: 768px) {
   .feed {
     padding: 1.5rem;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
   }
-
-  .feed div li {
-    font-size: 2vw;
+  .feed div {
+    padding: 3rem;
   }
-
   .feed div li:first-of-type {
     font-size: 2.75vw;
   }
-
-  /* First Top */
-  .feed div:first-child li:first-of-type {
-    font-size: 5vw;
+  .feed div li {
+    font-size: 2vw;
   }
 }
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1320px) {
   .feed {
     gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
   }
   .feed div {
     padding: 3.5rem;
@@ -117,44 +102,10 @@
   .feed ul {
     gap: 2rem;
   }
+  .feed div li:first-of-type {
+    font-size: 2.25vw;
+  }
   .feed div li {
     font-size: 1.5rem;
-  }
-  .feed div li:first-of-type {
-    font-size: 2vw;
-  }
-
-  /* First Top */
-  .feed div:first-child {
-    align-items: center;
-  }
-  .feed div:first-child figure {
-    background-position: center;
-  }
-  .feed div:first-child ul {
-    gap: 3rem;
-    text-align: center;
-  }
-  .feed div:first-child li:first-of-type {
-    font-size: 3.5vw;
-  }
-  .feed div:first-child li:nth-child(2),
-  .feed div:first-child li:nth-child(3),
-  .feed div:first-child li:nth-child(4) {
-    font-size: 1.75vw;
-    width: calc(33.333% - 2rem);
-  }
-
-  /* Two Cards in sequence */
-  .feed div:nth-child(5n + 2),
-  .feed div:nth-child(5n + 3) {
-    max-width: calc(50% - 1rem);
-  }
-
-  /* Three Cards in sequence */
-  .feed div:nth-child(5n + 4),
-  .feed div:nth-child(5n + 5),
-  .feed div:nth-child(5n + 6) {
-    width: calc(33.333% - 1.35rem);
   }
 }

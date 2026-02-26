@@ -97,28 +97,32 @@
       "url": "https://techcrunch.com/feed/"
     },
     {
-      "name": "Arstechnica",
-      "url": "http://feeds.arstechnica.com/arstechnica/index"
-    },
-    {
-      "name": "Wired",
-      "url": "https://www.wired.com/feed/"
-    },
-    {
-      "name": "VentureBeat",
-      "url": "https://venturebeat.com/feed"
-    },
-    {
-      "name": "Computerworld",
-      "url": "https://www.computerworld.com/feed/"
+      "name": "404 Media",
+      "url": "https://www.404media.co/rss/"
     },
     {
       "name": "MIT Technology Review",
       "url": "https://www.technologyreview.com/feed"
     },
     {
-      "name": "404 Media",
-      "url": "https://www.404media.co/rss/"
+      "name": "Arstechnica",
+      "url": "http://feeds.arstechnica.com/arstechnica/index"
+    },
+    {
+      "name": "Computerworld",
+      "url": "https://www.computerworld.com/feed/"
+    },
+    {
+      "name": "VentureBeat",
+      "url": "https://venturebeat.com/feed"
+    },
+    {
+      "name": "Engadget",
+      "url": "https://www.engadget.com/rss.xml"
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed/"
     },
     {
       "name": "ZDNet",
@@ -127,10 +131,6 @@
     {
       "name": "CNET",
       "url": "https://www.cnet.com/rss/news/"
-    },
-    {
-      "name": "Engadget",
-      "url": "https://www.engadget.com/rss.xml"
     },
     {
       "name": "Rest of World",
@@ -150,7 +150,7 @@
     },
     {
       "name": "Mashable",
-      "url": "https://mashable.com/feeds/rss/all"
+      "url": "https://mashable.com/feeds/rss/tech"
     }
   ],
   "biz": [

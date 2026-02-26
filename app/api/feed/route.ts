@@ -266,7 +266,7 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
     return [
       {
         title: 'Error',
-        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20getting%20feeds',
+        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20getting%20feeds%20by%20category',
       } as unknown as FeedResponse,
     ]
   }
@@ -338,7 +338,7 @@ async function getByName(country: string, category: string, name: string): Promi
     return [
       {
         title: 'Error',
-        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20parsing%20feed',
+        link: `mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20on:%20${name}`,
       } as unknown as FeedResponse,
     ]
   }

@@ -1,13 +1,13 @@
 {
   "news": [
     {
-      "name": "G1",
-      "url": "https://pox.globo.com/rss/g1/politica/"
-    },
-    {
       "name": "BBC",
       "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
       "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCthbIFAxbXTTQEC7EcQvP1Q"
+    },
+    {
+      "name": "G1",
+      "url": "https://pox.globo.com/rss/g1/politica/"
     },
     {
       "name": "CNN",
@@ -27,18 +27,18 @@
       "url": "https://www.poder360.com.br/feed/"
     },
     {
-      "name": "Agência Pública",
-      "url": "https://apublica.org/category/portugues/feed/"
+      "name": "UOL",
+      "url": "https://www.uol.com.br/vueland/api/?loadComponent=XmlFeedRss",
+      "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVFbXI6Gu8U2f9Gjtxw4A-Q",
+      "legacyFeed": true
     },
     {
       "name": "Nexo Jornal",
       "url": "https://www.nexojornal.com.br/rss.xml"
     },
     {
-      "name": "UOL",
-      "url": "https://www.uol.com.br/vueland/api/?loadComponent=XmlFeedRss",
-      "video": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVFbXI6Gu8U2f9Gjtxw4A-Q",
-      "legacyFeed": true
+      "name": "Agência Pública",
+      "url": "https://apublica.org/category/portugues/feed/"
     },
     {
       "name": "O Globo",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Agência Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/rss.xml"
+      "url": "https://agenciabrasil.ebc.com.br/rss/ultimasnoticias/feed.xml"
     },
     {
       "name": "piauí",
@@ -87,6 +87,18 @@
     {
       "name": "The Conversation",
       "url": "https://theconversation.com/articles.atom?language=pt"
+    },
+    {
+      "name": "Gazeta do Povo",
+      "url": "https://www.gazetadopovo.com.br/feed/rss/ultimas-noticias.xml"
+    },
+    {
+      "name": "O Antagonista",
+      "url": "https://oantagonista.com.br/feed"
+    },
+    {
+      "name": "ICL Notícias",
+      "url": "https://iclnoticias.com.br/feed/"
     }
   ],
   "check": [
@@ -117,6 +129,10 @@
   ],
   "tech": [
     {
+      "name": "TecMundo",
+      "url": "https://rss.tecmundo.com.br/feed"
+    },
+    {
       "name": "Tecnoblog",
       "url": "https://tecnoblog.net/feed/"
     },
@@ -129,12 +145,9 @@
       "url": "https://feeds2.feedburner.com/canaltechbr"
     },
     {
-      "name": "TecMundo",
-      "url": "https://rss.tecmundo.com.br/feed"
-    },
-    {
-      "name": "Gizmodo",
-      "url": "https://www.gizmodo.com.br/feed"
+      "name": "UOL Tilt",
+      "url": "https://rss.uol.com.br/feed/tecnologia.xml",
+      "legacyFeed": true
     },
     {
       "name": "Olhar Digital",
@@ -148,11 +161,9 @@
       "name": "Manual do Usuario",
       "url": "https://manualdousuario.net/feed/"
     },
-
     {
-      "name": "UOL Tilt",
-      "url": "https://rss.uol.com.br/feed/tecnologia.xml",
-      "legacyFeed": true
+      "name": "Gizmodo",
+      "url": "https://www.gizmodo.com.br/feed"
     },
     {
       "name": "TudoCelular",
@@ -161,6 +172,10 @@
     {
       "name": "Diolinux",
       "url": "https://diolinux.com.br/feed"
+    },
+    {
+      "name": "MacMagazine",
+      "url": "https://macmagazine.com.br/feed/"
     }
   ],
   "biz": [
@@ -309,6 +324,11 @@
       "name": "Jovem Nerd",
       "url": "https://api.jovemnerd.com.br/feed/",
       "legacyFeed": true
+    },
+    {
+      "name": "Folha Ilustrada",
+      "url": "https://feeds.folha.uol.com.br/ilustrada/rss091.xml",
+      "legacyFeed": true
     }
   ],
   "geek": [
@@ -383,11 +403,11 @@
       "legacyFeed": true
     },
     {
-      "name": "Nao Intendo",
+      "name": "Não Intendo",
       "url": "https://feeds.feedburner.com/naointendo"
     }
   ],
   "filter": {
-    "keywords": "/- UOL| - Exame Notícias| - CNN Brasil| - globoesporte.com| - LANCE!| - Omelete| - AdoroCinema| - Rolling Stone Brasil| - Tenho Mais Discos Que Amigos| - Mega Curioso| - NerdBunker| - purepeople.com.br| - ofuxico.com.br| - OFuxico/"
+    "keywords": "/- UOL| - Exame Notícias| - CNN Brasil| - globoesporte.com| - LANCE!| - Omelete| - AdoroCinema| - Rolling Stone Brasil| - Tenho Mais Discos Que Amigos| - Mega Curioso| - NerdBunker| - purepeople.com.br| - ofuxico.com.br| - OFuxico|Sensacionalista - /"
   }
 }
