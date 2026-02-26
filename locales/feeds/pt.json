@@ -1,6 +1,7 @@
 {
   "news": [
     { "name": "Público", "url": "http://feeds.feedburner.com/PublicoRSS" },
+    { "name": "Sapo", "url": "https://sapo.pt/rss/destaques" },
     {
       "name": "Observador",
       "url": "https://feeds.feedburner.com/obs-ultimas"

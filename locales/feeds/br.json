@@ -186,7 +186,7 @@
     },
     {
       "name": "Bloomberg",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:bloomberglinea.com.br&hl=pt-BR&gl=BR"
+      "url": "https://www.bloomberglinea.com.br/arc/outboundfeeds/rss.xml"
     },
     {
       "name": "Brazil Journal",
@@ -307,7 +307,8 @@
     },
     {
       "name": "Jovem Nerd",
-      "url": "https://news.google.com/rss/search?q=when:14d+jovemnerd.com.br&hl=pt-BR&gl=BR&ceid=BR:pt-419"
+      "url": "https://api.jovemnerd.com.br/feed/",
+      "legacyFeed": true
     }
   ],
   "geek": [
@@ -387,6 +388,6 @@
     }
   ],
   "filter": {
-    "keywords": "/- UOL| - Exame Notícias| - CNN Brasil| - globoesporte.com| - Bloomberg Línea Brasil| - Bloomberg Brasil| - LANCE!| - Omelete| - AdoroCinema| - Rolling Stone Brasil| - Tenho Mais Discos Que Amigos|- Jovem Nerd| - Mega Curioso| - NerdBunker| - purepeople.com.br| - ofuxico.com.br| - OFuxico/"
+    "keywords": "/- UOL| - Exame Notícias| - CNN Brasil| - globoesporte.com| - LANCE!| - Omelete| - AdoroCinema| - Rolling Stone Brasil| - Tenho Mais Discos Que Amigos| - Mega Curioso| - NerdBunker| - purepeople.com.br| - ofuxico.com.br| - OFuxico/"
   }
 }

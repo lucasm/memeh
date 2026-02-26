@@ -87,13 +87,50 @@ function stripHtml(html: string): string {
  * @param isLegacy - If true, handles ISO-8859-1 encoding (UOL, Folha feeds)
  */
 async function fetchAndParseFeed(url: string, isLegacy: boolean): Promise<Parser.Output<{ description?: string }>> {
+  console.log(`[FEED] Fetching: ${url} (legacy: ${isLegacy})`)
+
   if (!isLegacy) {
     // Modern feeds: use standard parseURL
-    return parser.parseURL(url)
+    try {
+      return await parser.parseURL(url)
+    } catch (parseError) {
+      // If parseURL fails, try manual fetch with detailed logging
+      console.log(`[FEED] parseURL failed, trying manual fetch...`)
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; Aspiral/1.0; +https://aspiral.app)',
+          Accept: 'application/rss+xml, application/xml, text/xml, */*',
+        },
+      })
+      console.log(`[FEED] Response status: ${response.status} ${response.statusText}`)
+      console.log(`[FEED] Response headers:`, Object.fromEntries(response.headers.entries()))
+
+      const text = await response.text()
+      console.log(`[FEED] Response length: ${text.length}`)
+      console.log(`[FEED] Response preview (first 500 chars):`, text.slice(0, 500))
+      console.log(`[FEED] Response preview (last 200 chars):`, text.slice(-200))
+
+      // Check if it's HTML (error page) instead of XML
+      if (text.includes('<!DOCTYPE html') || text.includes('<html')) {
+        console.error(`[FEED] ERROR: Received HTML instead of XML feed`)
+        throw new Error(`Feed URL returned HTML instead of XML: ${url}`)
+      }
+
+      return parser.parseString(text)
+    }
   }
 
   // Legacy feeds: fetch raw bytes and handle ISO-8859-1
-  const response = await fetch(url)
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible; Aspiral/1.0; +https://aspiral.app)',
+      Accept: 'application/rss+xml, application/xml, text/xml, */*',
+    },
+  })
+
+  console.log(`[FEED] Response status: ${response.status} ${response.statusText}`)
+  console.log(`[FEED] Response headers:`, Object.fromEntries(response.headers.entries()))
+
   const buffer = await response.arrayBuffer()
   const contentType = response.headers.get('content-type')
 
@@ -111,7 +148,23 @@ async function fetchAndParseFeed(url: string, isLegacy: boolean): Promise<Parser
     text = new TextDecoder('utf-8').decode(buffer)
   }
 
-  return parser.parseString(text)
+  console.log(`[FEED] Response length: ${text.length}`)
+  console.log(`[FEED] Response preview (first 500 chars):`, text.slice(0, 500))
+
+  // Check if it's HTML (error page) instead of XML
+  if (text.includes('<!DOCTYPE html') || text.includes('<html')) {
+    console.error(`[FEED] ERROR: Received HTML instead of XML feed`)
+    console.log(`[FEED] Full response:`, text)
+    throw new Error(`Feed URL returned HTML instead of XML: ${url}`)
+  }
+
+  try {
+    return parser.parseString(text)
+  } catch (parseError) {
+    console.error(`[FEED] Parse error:`, parseError)
+    console.log(`[FEED] Full response that failed to parse:`, text)
+    throw parseError
+  }
 }
 
 /**

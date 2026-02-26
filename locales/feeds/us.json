@@ -14,7 +14,7 @@
     },
     {
       "name": "Reuters",
-      "url": "https://news.google.com/rss/search?q=when:1d+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US"
+      "url": "https://news.google.com/rss/search?q=when:48h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US"
     },
     {
       "name": "The Washington Post",
@@ -76,7 +76,7 @@
   "check": [
     {
       "name": "AFP",
-      "url": "https://news.google.com/rss/search?q=when:3d+allinurl:factcheck.afp.com&hl=en-US&gl=US&ceid=US:en"
+      "url": "https://news.google.com/rss/search?q=when:48h+allinurl:factcheck.afp.com&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "FactCheck",
@@ -214,7 +214,7 @@
     },
     {
       "name": "Bleacher Report",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:bleacherreport.com&ceid=US:en&hl=en-US&gl=US"
+      "url": "https://feeds.bleacherreport.com/articles"
     },
     {
       "name": "90min",
@@ -244,7 +244,7 @@
     },
     {
       "name": "EW",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:ew.com&ceid=US:en&hl=en-US&gl=US"
+      "url": "https://feeds-api.dotdashmeredith.com/v1/rss/google/06e092d0-4dff-468a-93db-8d6a995730b4"
     },
     {
       "name": "IMDb",
@@ -268,7 +268,7 @@
     },
     {
       "name": "People",
-      "url": "https://news.google.com/rss/search?q=when:24h+allinurl:people.com&ceid=US:en&hl=en-US&gl=US"
+      "url": "https://feeds-api.dotdashmeredith.com/v1/rss/google/6bb3396f-8157-4dc5-8fcf-c1bd9d415be8"
     },
     {
       "name": "Vice",
@@ -312,7 +312,7 @@
     },
     {
       "name": "Nature",
-      "url": "https://news.google.com/rss/search?q=when:2d+allinurl:nature.com&ceid=US:en&hl=en-US&gl=US"
+      "url": "https://www.nature.com/nature.rss"
     },
     {
       "name": "Science Magazine",
@@ -340,7 +340,7 @@
     },
     {
       "name": "WebMD",
-      "url": "https://rssfeeds.webmd.com/rss/rss.aspx"
+      "url": "https://news.google.com/rss/search?q=when:48h+allinurl:webmd.com&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "Greatist",
@@ -357,8 +357,8 @@
       "url": "https://www.reddit.com/r/all/top/.rss"
     },
     {
-      "name": "Digg",
-      "url": "https://digg.com/rss/index.xml"
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss"
     },
     {
       "name": "Product Hunt",
