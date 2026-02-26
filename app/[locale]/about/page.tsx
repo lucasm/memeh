@@ -77,7 +77,7 @@ export default async function AboutPage() {
               of our feed.
             </p>
 
-            <h2>Technology</h2>
+            <h2>Technology & Open Source</h2>
 
             <ul>
               <li>RSS Feeds of Sources</li>
@@ -85,6 +85,7 @@ export default async function AboutPage() {
               <li>TypeScript Programming Language</li>
               <li>Vercel Host</li>
               <li>Cloudflare CDN</li>
+              <li>GitHub source code repository</li>
             </ul>
 
             <h2>Accessibility</h2>
@@ -94,6 +95,24 @@ export default async function AboutPage() {
             </p>
             <Button component="a" href="/" color="black" size="md">
               Go to Aspiral
+            </Button>
+
+            <Space h="lg" />
+
+            <Button component="a" href="https://github.com/lucasm/aspiral" color="grey" size="md" target="_blank" rel="noopener noreferrer">
+              Go to Aspiral source code
+            </Button>
+
+            <Space h="lg" />
+
+            <Button
+              component="a"
+              href="https://github.com/sponsors/lucasm"
+              color="#ff7c7e"
+              size="md"
+              target="_blank"
+              rel="noopener noreferrer">
+              Sponsor Aspiral
             </Button>
           </article>
         </div>
