@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
+import { FeedError, httpError } from '@/constants/feedErrors'
+import ButtonRetry from './ButtonRetry/ButtonRetry'
 import Loader from './Loader/Loader'
 
 type Props = {
@@ -7,12 +9,31 @@ type Props = {
   readonly name: string
 }
 
+// Extrai mensagem de erro do response ou retorna null se OK
+function getErrorMessage(responseJson: any): string | null {
+  if (!responseJson || !Array.isArray(responseJson) || responseJson.length === 0) {
+    return FeedError.EMPTY_RESPONSE
+  }
+  // Detecta item com title começando com "Error"
+  const errorItem = responseJson.find((item: any) => item?.title?.toLowerCase().startsWith('error'))
+  if (errorItem) {
+    return errorItem.title
+  }
+  return null
+}
+
 export default function CardFeedFetch(props: Readonly<Props>) {
   const [data, setData] = useState<any>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [retryCount, setRetryCount] = useState(0)
 
   const abortControllerRef = useRef<AbortController | null>(null)
+
+  const handleRetry = useCallback(() => {
+    setErrorMessage(null)
+    setRetryCount((c) => c + 1)
+  }, [])
 
   const fetchFeed = useCallback(() => {
     if (abortControllerRef.current) {
@@ -22,36 +43,36 @@ export default function CardFeedFetch(props: Readonly<Props>) {
     const abortController = new AbortController()
     abortControllerRef.current = abortController
     setLoading(true)
+    setErrorMessage(null)
 
     const url = `/api/feed?country=${props.country}&category=${props.category}&name=${props.name}`
 
     fetch(url, { signal: abortController.signal })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
+          throw new Error(httpError(response.status))
         }
         return response.json()
       })
       .then((responseJson) => {
         if (!abortController.signal.aborted) {
-          setData(responseJson)
+          const error = getErrorMessage(responseJson)
+          if (error) {
+            setErrorMessage(error)
+            setData([])
+          } else {
+            setData(responseJson)
+            setErrorMessage(null)
+          }
           setLoading(false)
         }
       })
-      .catch((error) => {
-        if (error.name === 'AbortError') return
-        console.log('GET ERROR', error)
+      .catch((err) => {
+        if (err.name === 'AbortError') return
+        console.log('GET ERROR', err)
         setLoading(false)
-        setData([
-          {
-            title: 'Ooopss!',
-            link: null,
-          },
-        ])
-        // Retry automático único após 3s
-        if (retryCount === 0) {
-          setTimeout(() => setRetryCount((c) => c + 1), 3000)
-        }
+        setErrorMessage(err.message || FeedError.NETWORK_ERROR)
+        setData([])
       })
 
     return () => {
@@ -66,22 +87,18 @@ export default function CardFeedFetch(props: Readonly<Props>) {
 
   return (
     <ul>
-      {data.map((item) =>
-        item.link === null ? (
-          <li key="error">
-            <button
-              onClick={() => setRetryCount((c) => c + 1)}
-              style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}>
-              {item.title}
-            </button>
-          </li>
-        ) : (
+      {errorMessage ? (
+        <li>
+          <ButtonRetry onClick={handleRetry} feedName={props.name} errorMessage={errorMessage} />
+        </li>
+      ) : (
+        data.map((item) => (
           <li key={item.title + item.link}>
             <a href={item.link} target="_blank" rel="external noopener noreferrer">
               {item.title}
             </a>
           </li>
-        )
+        ))
       )}
       {loading && <Loader />}
     </ul>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Parser from 'rss-parser'
+import { FeedError } from '@/constants/feedErrors'
 
 const parser = new Parser({
   defaultRSS: 2.0,
@@ -203,10 +204,7 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
     const feedCountry = (await import(`@/locales/feeds/${country}.json`)).default as IFeedConfig
 
     if (!feedCountry[category] || Array.isArray(feedCountry.filter)) {
-      return {
-        title: 'Error',
-        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Invalid%20category',
-      } as unknown as FeedResponse[]
+      return [{ title: FeedError.INVALID_CATEGORY, link: null }] as unknown as FeedResponse[]
     }
 
     // Get filter if available
@@ -263,12 +261,7 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
     return filteredFeed
   } catch (error) {
     console.error('ERROR GETTING FEEDS BY CATEGORY', error)
-    return [
-      {
-        title: 'Error',
-        link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20getting%20feeds%20by%20category',
-      } as unknown as FeedResponse,
-    ]
+    return [{ title: FeedError.CATEGORY_FETCH_FAILED, link: null }] as unknown as FeedResponse[]
   }
 }
 
@@ -281,12 +274,7 @@ async function getByName(country: string, category: string, name: string): Promi
     const feedCountry = (await import(`@/locales/feeds/${country}.json`)).default as IFeedConfig
 
     if (!feedCountry[category] || Array.isArray(feedCountry.filter)) {
-      return [
-        {
-          title: 'Error',
-          link: 'mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Invalid%20category',
-        } as unknown as FeedResponse,
-      ]
+      return [{ title: FeedError.INVALID_CATEGORY_NAME, link: null }] as unknown as FeedResponse[]
     }
 
     // Find the feed URL and legacyFeed flag by name
@@ -301,12 +289,7 @@ async function getByName(country: string, category: string, name: string): Promi
     })
 
     if (!feedUrl) {
-      return [
-        {
-          title: 'Error',
-          link: `mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Feed%20not%20found:%20${name}`,
-        } as unknown as FeedResponse,
-      ]
+      return [{ title: FeedError.FEED_NOT_FOUND, link: null }] as unknown as FeedResponse[]
     }
 
     // Get filter if available
@@ -335,12 +318,7 @@ async function getByName(country: string, category: string, name: string): Promi
     return result
   } catch (error) {
     console.error('ERROR GETTING FEED BY NAME', error)
-    return [
-      {
-        title: 'Error',
-        link: `mailto:feedback@aspiral.app?subject=Aspiral%20Feedback&body=Error%20on:%20${name}`,
-      } as unknown as FeedResponse,
-    ]
+    return [{ title: FeedError.FEED_FETCH_FAILED, link: null }] as unknown as FeedResponse[]
   }
 }
 

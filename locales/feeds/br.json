@@ -193,20 +193,12 @@
       "url": "https://www.infomoney.com.br/feed/"
     },
     {
-      "name": "Forbes",
-      "url": "https://www.forbes.com.br/feed/"
-    },
-    {
       "name": "Investing",
       "url": "https://br.investing.com/rss/news.rss"
     },
     {
-      "name": "Exame",
-      "url": "https://exame.com/feed/"
-    },
-    {
-      "name": "Bloomberg",
-      "url": "https://www.bloomberglinea.com.br/arc/outboundfeeds/rss.xml"
+      "name": "InvestNews",
+      "url": "https://investnews.com.br/feed/"
     },
     {
       "name": "Brazil Journal",
@@ -217,8 +209,20 @@
       "url": "https://neofeed.com.br/feed/"
     },
     {
-      "name": "InvestNews",
-      "url": "https://investnews.com.br/feed/"
+      "name": "Bloomberg",
+      "url": "https://www.bloomberglinea.com.br/arc/outboundfeeds/rss.xml"
+    },
+    {
+      "name": "Times Brasil",
+      "url": "https://timesbrasil.com.br/feed/"
+    },
+    {
+      "name": "Forbes",
+      "url": "https://www.forbes.com.br/feed/"
+    },
+    {
+      "name": "Exame",
+      "url": "https://exame.com/feed/"
     },
     {
       "name": "Money Times",
@@ -237,10 +241,7 @@
       "name": "Startupi",
       "url": "https://startupi.com.br/feed/"
     },
-    {
-      "name": "Times Brasil",
-      "url": "https://timesbrasil.com.br/feed/"
-    },
+
     {
       "name": "Época Negócios",
       "url": "https://epocanegocios.globo.com/rss/epocanegocios"
