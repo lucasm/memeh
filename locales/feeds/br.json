@@ -158,8 +158,9 @@
       "url": "https://pox.globo.com/rss/techtudo"
     },
     {
-      "name": "Manual do Usuario",
-      "url": "https://manualdousuario.net/feed/"
+      "name": "MIT Technology Review",
+      "url": "https://mittechreview.com.br/feed",
+      "legacyFeed": true
     },
     {
       "name": "Gizmodo",
@@ -178,9 +179,8 @@
       "url": "https://macmagazine.com.br/feed/"
     },
     {
-      "name": "MIT Technology Review",
-      "url": "https://mittechreview.com.br/feed",
-      "legacyFeed": true
+      "name": "Manual do Usuario",
+      "url": "https://manualdousuario.net/feed/"
     }
   ],
   "biz": [
@@ -334,6 +334,10 @@
       "name": "Folha Ilustrada",
       "url": "https://feeds.folha.uol.com.br/ilustrada/rss091.xml",
       "legacyFeed": true
+    },
+    {
+      "name": "O Vício",
+      "url": "https://ovicio.com.br/feed"
     }
   ],
   "geek": [

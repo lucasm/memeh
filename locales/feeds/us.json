@@ -5,12 +5,16 @@
       "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
     },
     {
-      "name": "CNN",
-      "url": "https://news.google.com/rss/search?q=when:1d+allinurl:cnn.com&hl=en-US&gl=US&ceid=US:en"
-    },
-    {
       "name": "The New York Times",
       "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+    },
+    {
+      "name": "Vox",
+      "url": "https://www.vox.com/rss/index.xml"
+    },
+    {
+      "name": "CNN",
+      "url": "https://news.google.com/rss/search?q=when:1d+allinurl:cnn.com&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "Reuters",
@@ -27,10 +31,6 @@
     {
       "name": "TIME",
       "url": "http://time.com/feed/"
-    },
-    {
-      "name": "Vox",
-      "url": "https://www.vox.com/rss/index.xml"
     },
     {
       "name": "The Guardian",
@@ -194,6 +194,7 @@
       "name": "Business Insider",
       "url": "https://www.businessinsider.com/rss"
     },
+    { "name": "Quartz", "url": "https://qz.com/feed" },
     {
       "name": "Forbes",
       "url": "https://news.google.com/rss/search?q=when:72h+allinurl:forbes.com&ceid=US:en&hl=en-US&gl=US"

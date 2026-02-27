@@ -496,16 +496,16 @@ section .container {
   z-index: 1;
 }
 .feedSection h2 {
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: -6.25rem;
-  color: rgb(255 255 255 / 5%);
-  font-size: 12vw;
-  letter-spacing: -1vw;
-  text-transform: uppercase;
+  position: relative;
+  color: #fff;
+  letter-spacing: -0.3vw;
+  /* text-transform: uppercase; */
+  -webkit-user-select: none;
   user-select: none;
-  z-index: -1;
+  font-size: 10vw;
+  margin: -2rem 0 2rem;
+  padding: 0;
+  font-weight: lighter;
 }
 
 /* Tablet */
@@ -538,14 +538,9 @@ section .container {
     height: 4rem;
     padding: 1.25rem;
   }
-
   .feedSection h2 {
-    right: -12vw;
-    top: -14vw;
-    left: unset;
-    font-size: 16vw;
+    font-size: 8vw;
   }
-
   section {
     padding: 5rem 5.5rem;
   }
