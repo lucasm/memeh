@@ -57,6 +57,7 @@
   line-height: 1.2;
   padding: 0;
   filter: grayscale(100%);
+  word-wrap: break-word;
 }
 .feed div li:first-of-type {
   font-size: 6vw;
