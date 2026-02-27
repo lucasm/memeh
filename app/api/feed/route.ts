@@ -198,20 +198,21 @@ function parseFilterString(filterStr: string): RegExp | null {
 /**
  * Get all feeds by category
  */
-async function getByCategory(country: string, category: string): Promise<FeedResponse[]> {
+async function getByCategory(locale: string, category: string): Promise<FeedResponse[]> {
   try {
-    // Dynamically import the feed file for the country
-    const feedCountry = (await import(`@/locales/feeds/${country}.json`)).default as IFeedConfig
+    // Dynamically import the locale file
+    const localeData = (await import(`@/locales/${locale}.json`)).default
+    const feedConfig = localeData.feeds as IFeedConfig
 
-    if (!feedCountry[category] || Array.isArray(feedCountry.filter)) {
+    if (!feedConfig[category] || Array.isArray(feedConfig.filter)) {
       return [{ title: FeedError.INVALID_CATEGORY, link: null }] as unknown as FeedResponse[]
     }
 
     // Get filter if available
-    const filterConfig = feedCountry.filter as FeedFilter | undefined
+    const filterConfig = feedConfig.filter as FeedFilter | undefined
     const filterRegex = filterConfig?.keywords ? parseFilterString(filterConfig.keywords) : null
 
-    const feedArray = feedCountry[category] as IFeedFile[]
+    const feedArray = feedConfig[category] as IFeedFile[]
     const ids: string[] = []
     const theFeed: Array<{ title: string | undefined; items: any[] }> = []
 
@@ -268,19 +269,20 @@ async function getByCategory(country: string, category: string): Promise<FeedRes
 /**
  * Get feed by specific name
  */
-async function getByName(country: string, category: string, name: string): Promise<FeedResponse[]> {
+async function getByName(locale: string, category: string, name: string): Promise<FeedResponse[]> {
   try {
-    // Dynamically import the feed file for the country
-    const feedCountry = (await import(`@/locales/feeds/${country}.json`)).default as IFeedConfig
+    // Dynamically import the locale file
+    const localeData = (await import(`@/locales/${locale}.json`)).default
+    const feedConfig = localeData.feeds as IFeedConfig
 
-    if (!feedCountry[category] || Array.isArray(feedCountry.filter)) {
+    if (!feedConfig[category] || Array.isArray(feedConfig.filter)) {
       return [{ title: FeedError.INVALID_CATEGORY_NAME, link: null }] as unknown as FeedResponse[]
     }
 
     // Find the feed URL and legacyFeed flag by name
     let feedUrl = ''
     let isLegacy = false
-    const feedArray = feedCountry[category] as IFeedFile[]
+    const feedArray = feedConfig[category] as IFeedFile[]
     feedArray.forEach((item) => {
       if (item.name === name) {
         feedUrl = item.url
@@ -293,7 +295,7 @@ async function getByName(country: string, category: string, name: string): Promi
     }
 
     // Get filter if available
-    const filterConfig = feedCountry.filter as FeedFilter | undefined
+    const filterConfig = feedConfig.filter as FeedFilter | undefined
     const filterRegex = filterConfig?.keywords ? parseFilterString(filterConfig.keywords) : null
 
     // Parse the feed using ISO-8859-1 decoder if needed
@@ -324,16 +326,16 @@ async function getByName(country: string, category: string, name: string): Promi
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
-  const country = searchParams.get('country')
+  const locale = searchParams.get('locale')
   const category = searchParams.get('category')
   const name = searchParams.get('name')
 
   // Validate required parameters
-  if (!country || !category) {
+  if (!locale || !category) {
     return NextResponse.json(
       {
         error: 'Missing required parameters',
-        message: `Required: country and category. Optional: name. Received: country='${country}', category='${category}'`,
+        message: `Required: locale and category. Optional: name. Received: locale='${locale}', category='${category}'`,
       },
       { status: 400 }
     )
@@ -344,10 +346,10 @@ export async function GET(request: NextRequest) {
 
     if (name) {
       // Get specific feed by name
-      data = await getByName(country, category, name)
+      data = await getByName(locale, category, name)
     } else {
       // Get all feeds by category
-      data = await getByCategory(country, category)
+      data = await getByCategory(locale, category)
     }
 
     return NextResponse.json(data)

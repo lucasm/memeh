@@ -6,7 +6,6 @@
   "privacy": "Privacidade",
   "feedback": "Reportar erro",
   "edition": "Edição",
-  "country": "pt",
   "language": "pt-PT",
   "donate": "Contribuir",
   "credits": "Criado por",
@@ -21,5 +20,51 @@
   "geek": "Jogos",
   "sci": "Ciência",
   "dscvr": "Descubra",
-  "search": "Buscar"
+  "search": "Buscar",
+  "feeds": {
+    "news": [
+      { "name": "Público", "url": "http://feeds.feedburner.com/PublicoRSS" },
+      { "name": "Sapo", "url": "https://sapo.pt/rss/destaques" },
+      {
+        "name": "Observador",
+        "url": "https://feeds.feedburner.com/obs-ultimas"
+      },
+      { "name": "Diário de Notícias", "url": "http://feeds.dn.pt/DN-Ultimas" },
+      { "name": "Jornal de Notícias", "url": "http://feeds.jn.pt/JN-ULTIMAS" },
+      { "name": "Correio da Manhã", "url": "https://www.cmjornal.pt/rss" },
+      { "name": "RTP", "url": "https://www.rtp.pt/noticias/rss" }
+    ],
+    "check": [{ "name": "Poligrafo", "url": "https://poligrafo.sapo.pt/feed" }],
+    "tech": [
+      { "name": "Pplware", "url": "https://pplware.sapo.pt/feed/" },
+      {
+        "name": "Exame Informatica",
+        "url": "https://visao.sapo.pt/exameinformatica/feed/"
+      },
+      { "name": "PC Guia", "url": "https://www.pcguia.pt/feed/" },
+      { "name": "Bit Magazine", "url": "https://www.bit.pt/feed" },
+      { "name": "Leak", "url": "https://www.leak.pt/feed/" }
+    ],
+    "biz": [
+      {
+        "name": "Jornal de Negocios",
+        "url": "https://www.jornaldenegocios.pt/rss"
+      },
+      { "name": "Dinheiro Vivo", "url": "https://www.dinheirovivo.pt/feed" },
+      {
+        "name": "O Jornal Economico",
+        "url": "https://jornaleconomico.sapo.pt/feed"
+      }
+    ],
+    "sport": [
+      { "name": "A Bola", "url": "https://abola.pt/rss" },
+      { "name": "O Jogo", "url": "http://feeds.ojogo.pt/OJ-ULTIMAS" },
+      { "name": "Record", "url": "https://www.record.pt/rss" }
+    ],
+    "cult": [{ "name": "A Televisão", "url": "https://www.atelevisao.com/feed/" }],
+    "geek": [{ "name": "IGN", "url": "https://pt.ign.com/feed.xml" }],
+    "sci": [{ "name": "HypeScience", "url": "https://hypescience.com/feed/" }],
+    "dscvr": [{ "name": "Reddit", "url": "https://www.reddit.com/r/portugal/.rss" }],
+    "filter": { "keywords": "" }
+  }
 }

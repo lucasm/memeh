@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { normalizeId } from '@/utils/normalizeId'
 
 type Props = {
-  readonly country: string
+  readonly locale: string
   readonly category: string
 }
 
@@ -20,16 +20,17 @@ const feedCache = new Map<string, Record<string, IFeedFile[]>>()
 
 export default function Card(props: Readonly<Props>) {
   const feeds = useMemo<IFeedFile[]>(() => {
-    if (!feedCache.has(props.country)) {
-      feedCache.set(props.country, require('../../locales/feeds/' + props.country + '.json'))
+    if (!feedCache.has(props.locale)) {
+      const localeData = require('../../locales/' + props.locale + '.json')
+      feedCache.set(props.locale, localeData.feeds)
     }
-    return feedCache.get(props.country)![props.category] ?? []
-  }, [props.country, props.category])
+    return feedCache.get(props.locale)![props.category] ?? []
+  }, [props.locale, props.category])
 
   return (
     <div className={styles.feed}>
       {feeds.map((item) => (
-        <div key={props.country + item.name} id={normalizeId(item.name)}>
+        <div key={props.locale + item.name} id={normalizeId(item.name)}>
           <figure
             style={{
               backgroundImage: 'url(/images/logos/' + normalizeId(item.name) + '.svg)',
@@ -37,7 +38,7 @@ export default function Card(props: Readonly<Props>) {
             <h3>{item.name}</h3>
           </figure>
 
-          <CardFeedFetch country={props.country} category={props.category} name={item.name} />
+          <CardFeedFetch locale={props.locale} category={props.category} name={item.name} />
         </div>
       ))}
     </div>

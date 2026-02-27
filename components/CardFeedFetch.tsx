@@ -4,7 +4,7 @@ import ButtonRetry from './ButtonRetry/ButtonRetry'
 import Loader from './Loader/Loader'
 
 type Props = {
-  readonly country: string
+  readonly locale: string
   readonly category: string
   readonly name: string
 }
@@ -47,7 +47,7 @@ export default function CardFeedFetch(props: Readonly<Props>) {
     setLoading(true)
     setErrorMessage(null)
 
-    const url = `/api/feed?country=${props.country}&category=${props.category}&name=${props.name}`
+    const url = `/api/feed?locale=${props.locale}&category=${props.category}&name=${props.name}`
 
     fetch(url, { signal: abortController.signal })
       .then((response) => {
@@ -80,7 +80,7 @@ export default function CardFeedFetch(props: Readonly<Props>) {
     return () => {
       abortController.abort()
     }
-  }, [props.category, props.country, props.name, retryCount])
+  }, [props.category, props.locale, props.name, retryCount])
 
   useEffect(() => {
     const cleanup = fetchFeed()

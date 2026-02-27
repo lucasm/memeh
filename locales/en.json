@@ -6,7 +6,6 @@
   "privacy": "Privacy, Terms and Cookies",
   "feedback": "Send Feedback",
   "edition": "Edition",
-  "country": "us",
   "language": "en",
   "donate": "Sponsor",
   "credits": "Created by",
@@ -21,5 +20,397 @@
   "geek": "Gaming",
   "sci": "Science",
   "dscvr": "Discover",
-  "search": "Search"
+  "search": "Search",
+  "feeds": {
+    "news": [
+      {
+        "name": "BBC",
+        "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
+      },
+      {
+        "name": "The New York Times",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+      },
+      {
+        "name": "Vox",
+        "url": "https://www.vox.com/rss/index.xml"
+      },
+      {
+        "name": "CNN",
+        "url": "https://news.google.com/rss/search?q=when:1d+allinurl:cnn.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "name": "Reuters",
+        "url": "https://news.google.com/rss/search?q=when:48h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US"
+      },
+      {
+        "name": "The Washington Post",
+        "url": "https://feeds.washingtonpost.com/rss/world"
+      },
+      {
+        "name": "Associated Press",
+        "url": "https://news.google.com/rss/search?q=when:24h+allinurl:apnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "name": "TIME",
+        "url": "http://time.com/feed/"
+      },
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/international/rss"
+      },
+      {
+        "name": "Aljazeera",
+        "url": "http://www.aljazeera.com/xml/rss/all.xml"
+      },
+      {
+        "name": "DW",
+        "url": "https://news.google.com/rss/search?q=when:24h+allinurl:dw.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "name": "Politico",
+        "url": "https://www.politico.com/rss/politicopicks.xml"
+      },
+      {
+        "name": "NBC News",
+        "url": "https://www.nbcnews.com/feed"
+      },
+      {
+        "name": "Slate",
+        "url": "https://slate.com/feeds/news-and-politics.rss"
+      },
+      {
+        "name": "Jacobin",
+        "url": "https://jacobin.com/feed/"
+      },
+      {
+        "name": "The Intercept",
+        "url": "https://theintercept.com/feed/?lang=en"
+      },
+      {
+        "name": "New Republic",
+        "url": "https://newrepublic.com/rss.xml"
+      },
+      {
+        "name": "Mother Jones",
+        "url": "https://www.motherjones.com/feed"
+      }
+    ],
+    "check": [
+      {
+        "name": "AFP",
+        "url": "https://news.google.com/rss/search?q=when:48h+allinurl:factcheck.afp.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "name": "FactCheck",
+        "url": "https://www.factcheck.org/feed/"
+      },
+      {
+        "name": "PolitiFact",
+        "url": "https://www.politifact.com/rss/factchecks/"
+      }
+    ],
+    "tech": [
+      {
+        "name": "The Verge",
+        "url": "http://www.theverge.com/rss/index.xml"
+      },
+      {
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com/feed/"
+      },
+      {
+        "name": "404 Media",
+        "url": "https://www.404media.co/rss/"
+      },
+      {
+        "name": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed"
+      },
+      {
+        "name": "Arstechnica",
+        "url": "http://feeds.arstechnica.com/arstechnica/index"
+      },
+      {
+        "name": "Computerworld",
+        "url": "https://www.computerworld.com/feed/"
+      },
+      {
+        "name": "VentureBeat",
+        "url": "https://venturebeat.com/feed"
+      },
+      {
+        "name": "Platformer",
+        "url": "https://www.platformer.news/rss/"
+      },
+      {
+        "name": "Stratechery",
+        "url": "https://stratechery.com/feed"
+      },
+      {
+        "name": "Rest of World",
+        "url": "https://restofworld.org/feed/latest"
+      },
+      {
+        "name": "Engadget",
+        "url": "https://www.engadget.com/rss.xml"
+      },
+      {
+        "name": "Wired",
+        "url": "https://www.wired.com/feed/"
+      },
+      {
+        "name": "ZDNet",
+        "url": "https://www.zdnet.com/news/rss.xml"
+      },
+      {
+        "name": "CNET",
+        "url": "https://www.cnet.com/rss/news/"
+      },
+      {
+        "name": "Futurism",
+        "url": "https://futurism.com/feed"
+      },
+      {
+        "name": "The Next Web",
+        "url": "https://thenextweb.com/feed/"
+      },
+      {
+        "name": "Gizmodo",
+        "url": "https://gizmodo.com/rss"
+      },
+      {
+        "name": "Mashable",
+        "url": "https://mashable.com/feeds/rss/tech"
+      }
+    ],
+    "biz": [
+      {
+        "name": "The Economist",
+        "url": "https://www.economist.com/finance-and-economics/rss.xml"
+      },
+      {
+        "name": "Financial Times",
+        "url": "https://www.ft.com/world?format=rss"
+      },
+      {
+        "name": "WSJ",
+        "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+      },
+      {
+        "name": "Bloomberg",
+        "url": "https://news.google.com/rss/search?q=when:24h+allinurl:bloomberg.com&ceid=US:en&hl=en-US&gl=US"
+      },
+      {
+        "name": "Fortune",
+        "url": "https://fortune.com/feed/"
+      },
+      {
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html"
+      },
+      {
+        "name": "Fast Company",
+        "url": "https://www.fastcompany.com/latest/rss"
+      },
+      {
+        "name": "Business Insider",
+        "url": "https://www.businessinsider.com/rss"
+      },
+      { "name": "Quartz", "url": "https://qz.com/feed" },
+      {
+        "name": "Forbes",
+        "url": "https://news.google.com/rss/search?q=when:72h+allinurl:forbes.com&ceid=US:en&hl=en-US&gl=US"
+      },
+      {
+        "name": "Inc",
+        "url": "https://www.inc.com/rss/"
+      },
+      {
+        "name": "Entrepreneur",
+        "url": "https://www.entrepreneur.com/latest.rss"
+      }
+    ],
+    "sport": [
+      {
+        "name": "ESPN",
+        "url": "https://www.espn.com/espn/rss/news"
+      },
+      {
+        "name": "FOX Sports",
+        "url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&aggregateId=7f83e8ca-6701-5ea0-96ee-072636b67336"
+      },
+      {
+        "name": "Yahoo Sports",
+        "url": "https://sports.yahoo.com/rss/"
+      },
+      {
+        "name": "Bleacher Report",
+        "url": "https://feeds.bleacherreport.com/articles"
+      },
+      {
+        "name": "90min",
+        "url": "https://www.90min.com/posts.rss"
+      },
+      {
+        "name": "Deadspin",
+        "url": "https://deadspin.com/rss"
+      }
+    ],
+    "cult": [
+      {
+        "name": "New Yorker",
+        "url": "https://www.newyorker.com/feed/rss"
+      },
+      {
+        "name": "Variety",
+        "url": "https://variety.com/feed"
+      },
+      {
+        "name": "Hollywood Reporter",
+        "url": "https://www.hollywoodreporter.com/feed/rss/"
+      },
+      {
+        "name": "Billboard",
+        "url": "https://www.billboard.com/feed/"
+      },
+      {
+        "name": "EW",
+        "url": "https://feeds-api.dotdashmeredith.com/v1/rss/google/06e092d0-4dff-468a-93db-8d6a995730b4"
+      },
+      {
+        "name": "IMDb",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_vz6SvmIkYs1_H3Wv2SKlg"
+      },
+      {
+        "name": "Pitchfork",
+        "url": "https://pitchfork.com/feed/feed-news/rss"
+      },
+      {
+        "name": "Rolling Stone",
+        "url": "https://www.rollingstone.com/feed/"
+      },
+      {
+        "name": "AV Club",
+        "url": "https://www.avclub.com/rss"
+      },
+      {
+        "name": "Vulture",
+        "url": "https://www.vulture.com/feeds/flipboard.rss"
+      },
+      {
+        "name": "People",
+        "url": "https://feeds-api.dotdashmeredith.com/v1/rss/google/6bb3396f-8157-4dc5-8fcf-c1bd9d415be8"
+      },
+      {
+        "name": "Vice",
+        "url": "https://www.vice.com/en/rss"
+      },
+      {
+        "name": "BuzzFeed",
+        "url": "https://www.buzzfeed.com/feed.xml"
+      },
+      {
+        "name": "Aeon",
+        "url": "https://aeon.co/feed.rss"
+      },
+      {
+        "name": "The Atlantic",
+        "url": "https://www.theatlantic.com/feed/channel/culture/"
+      }
+    ],
+    "geek": [
+      {
+        "name": "IGN",
+        "url": "http://feeds.ign.com/ign/all"
+      },
+      {
+        "name": "Polygon",
+        "url": "https://www.polygon.com/rss/index.xml"
+      },
+      {
+        "name": "Kotaku",
+        "url": "https://kotaku.com/rss"
+      },
+      {
+        "name": "GameSpot",
+        "url": "https://www.gamespot.com/feeds/mashup/"
+      },
+      {
+        "name": "PC Gamer",
+        "url": "https://www.pcgamer.com/rss"
+      },
+      {
+        "name": "RPS",
+        "url": "https://www.rockpapershotgun.com/feed"
+      }
+    ],
+    "sci": [
+      {
+        "name": "LiveScience",
+        "url": "https://www.livescience.com/feeds/all"
+      },
+      {
+        "name": "Nature",
+        "url": "https://www.nature.com/nature.rss"
+      },
+      {
+        "name": "Science Magazine",
+        "url": "https://www.sciencemag.org/rss/news_current.xml"
+      },
+      {
+        "name": "Discover",
+        "url": "https://feeds.feedburner.com/AllDiscovermagazinecomContent"
+      },
+      {
+        "name": "Futurity",
+        "url": "https://www.futurity.org/feed/"
+      },
+      {
+        "name": "Popular Science",
+        "url": "https://www.popsci.com/feed/"
+      },
+      {
+        "name": "New Scientist",
+        "url": "https://www.newscientist.com/feed/home/"
+      },
+      {
+        "name": "Scientific American",
+        "url": "http://rss.sciam.com/ScientificAmerican-Global"
+      },
+      {
+        "name": "WebMD",
+        "url": "https://news.google.com/rss/search?q=when:48h+allinurl:webmd.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "name": "Greatist",
+        "url": "https://greatist.com/feed"
+      },
+      {
+        "name": "Quanta Magazine",
+        "url": "https://api.quantamagazine.org/feed/"
+      },
+      {
+        "name": "Nautilus",
+        "url": "https://nautil.us/feed/"
+      }
+    ],
+    "dscvr": [
+      {
+        "name": "Reddit",
+        "url": "https://www.reddit.com/r/all/top/.rss"
+      },
+      {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/rss"
+      },
+      {
+        "name": "Product Hunt",
+        "url": "https://www.producthunt.com/feed"
+      }
+    ],
+    "filter": {
+      "keywords": "/ - Reuters| - CNN| - AP News| - DW.com| - Bloomberg.com| - Bloomberg| - Forbes| - CNET| - Bleacher Report| - IMDb| - People.com| - Entertainment Weekly| - PEOPLE| - Nature| - AFP Fact Check/"
+    }
+  }
 }
