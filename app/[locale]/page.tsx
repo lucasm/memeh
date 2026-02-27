@@ -1,74 +1,47 @@
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getLocale } from 'next-intl/server'
 import CardFeed from '@/components/CardFeed/CardFeed'
+import SectionFeed from '@/components/SectionFeed/SectionFeed'
 
 export default async function HomePage() {
-  const t = await getTranslations()
   const locale = await getLocale()
 
   return (
-    <div className="PageLayout" id="home">
-      <section id="news">
-        <div className="feedSection">
-          <h2>{t('news')}</h2>
-          <CardFeed locale={locale} category="news" />
-        </div>
-      </section>
+    <div id="home">
+      <SectionFeed id="news">
+        <CardFeed locale={locale} category="news" />
+      </SectionFeed>
 
-      <section id="biz">
-        <div className="feedSection">
-          <h2>{t('biz')}</h2>
-          <CardFeed locale={locale} category="biz" />
-        </div>
-      </section>
+      <SectionFeed id="biz">
+        <CardFeed locale={locale} category="biz" />
+      </SectionFeed>
 
-      <section id="tech">
-        <div className="feedSection">
-          <h2>{t('tech')}</h2>
-          <CardFeed locale={locale} category="tech" />
-        </div>
-      </section>
+      <SectionFeed id="tech">
+        <CardFeed locale={locale} category="tech" />
+      </SectionFeed>
 
-      <section id="sport">
-        <div className="feedSection">
-          <h2>{t('sport')}</h2>
-          <CardFeed locale={locale} category="sport" />
-        </div>
-      </section>
+      <SectionFeed id="sport">
+        <CardFeed locale={locale} category="sport" />
+      </SectionFeed>
 
-      <section id="cult">
-        <div className="feedSection">
-          <h2>{t('cult')}</h2>
-          <CardFeed locale={locale} category="cult" />
-        </div>
-      </section>
+      <SectionFeed id="cult">
+        <CardFeed locale={locale} category="cult" />
+      </SectionFeed>
 
-      <section id="geek">
-        <div className="feedSection">
-          <h2>{t('geek')}</h2>
-          <CardFeed locale={locale} category="geek" />
-        </div>
-      </section>
+      <SectionFeed id="geek">
+        <CardFeed locale={locale} category="geek" />
+      </SectionFeed>
 
-      <section id="sci">
-        <div className="feedSection">
-          <h2>{t('sci')}</h2>
-          <CardFeed locale={locale} category="sci" />
-        </div>
-      </section>
+      <SectionFeed id="sci">
+        <CardFeed locale={locale} category="sci" />
+      </SectionFeed>
 
-      <section id="check">
-        <div className="feedSection">
-          <h2>{t('check')}</h2>
-          <CardFeed locale={locale} category="check" />
-        </div>
-      </section>
+      <SectionFeed id="check">
+        <CardFeed locale={locale} category="check" />
+      </SectionFeed>
 
-      <section id="dscvr">
-        <div className="feedSection">
-          <h2>{t('dscvr')}</h2>
-          <CardFeed locale={locale} category="dscvr" />
-        </div>
-      </section>
+      <SectionFeed id="dscvr">
+        <CardFeed locale={locale} category="dscvr" />
+      </SectionFeed>
     </div>
   )
 }

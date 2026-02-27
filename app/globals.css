@@ -19,7 +19,6 @@
   --color-cyan: #00b7ca;
   --color-green: #00b874;
   --opacity: 0.45;
-  --navDrawerDurationEnterMS: 250ms;
   --easingDecelerate: cubic-bezier(0, 0, 0.2, 1);
 }
 *,
@@ -56,11 +55,6 @@
 }
 #dscvr {
   background: var(--color-orange);
-}
-
-svg,
-.svg {
-  fill: var(--color-black);
 }
 
 html {
@@ -121,7 +115,9 @@ header {
   width: 24px;
   height: 3px;
   background: #fff;
-  transition: all 0.25s;
+  transition:
+    transform 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background 200ms ease;
   border-radius: 1rem;
 }
 .hamburger:before,
@@ -134,7 +130,11 @@ header {
   height: 3px;
   background: #fff;
   z-index: 1;
-  transition: all 0.25s;
+  transition:
+    transform 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    width 200ms ease,
+    top 200ms ease,
+    background 200ms ease;
   border-radius: 1rem;
 }
 .hamburger:before {
@@ -162,6 +162,7 @@ header {
 }
 #menu.open {
   box-shadow: none;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .layer {
@@ -170,15 +171,19 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  transition: all;
   z-index: 2;
   background: transparent;
-  display: none;
-  transition: var(--easingDecelerate);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 300ms var(--easingDecelerate),
+    visibility 300ms var(--easingDecelerate);
 }
 .layer-active {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 
 header nav {
@@ -188,8 +193,11 @@ header nav {
   right: 0;
   top: 0;
   background: var(--color-white);
-  transition: all var(--navDrawerDurationEnterMS) var(--easingDecelerate);
-  transform: translateX(50%);
+  transition:
+    transform 350ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 250ms var(--easingDecelerate),
+    visibility 350ms var(--easingDecelerate);
+  transform: translateX(100%);
   visibility: hidden;
   opacity: 0;
   z-index: 3;
@@ -214,10 +222,11 @@ header nav a {
   padding: 0.25rem 4rem;
   width: 100%;
   font-size: 5vw;
+  transition: background 150ms ease;
 }
 header nav a:hover,
 header nav a:focus {
-  background: #eee;
+  background: #f5f5f5;
 }
 
 section {
@@ -359,36 +368,6 @@ article blockquote {
   font-style: italic;
 }
 
-/* Helpers */
-.left {
-  text-align: left;
-}
-.right {
-  text-align: right;
-}
-.page {
-  margin-top: 2rem;
-  position: relative;
-  height: 100%;
-}
-.page h1 {
-  max-width: 780px;
-}
-.page p {
-  max-width: 680px;
-}
-
-.grid {
-  width: 100%;
-  flex-direction: row;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
-
-/* Footer */
 footer {
   width: 100%;
   margin: 0 auto;
@@ -430,84 +409,6 @@ footer a:focus {
   color: var(--color-black);
 }
 
-/* Animations */
-section .container {
-  -webkit-animation-name: up;
-  animation-name: up;
-  -webkit-animation-duration: 350ms;
-  animation-duration: 350ms;
-  -webkit-animation-timing-function: ease-out;
-  animation-timing-function: ease-out;
-}
-
-@-webkit-keyframes up {
-  0% {
-    -webkit-transform: translateY(-1rem);
-    transform: translateY(-1rem);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translateY(1rem);
-    transform: translateY(1rem);
-    opacity: 1;
-  }
-}
-@keyframes up {
-  0% {
-    -webkit-transform: translateY(-1rem);
-    transform: translateY(-1rem);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translateY(1rem);
-    transform: translateY(1rem);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes down {
-  0% {
-    -webkit-transform: translateY(1rem);
-    transform: translateY(-1rem);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes down {
-  0% {
-    -webkit-transform: translateY(1rem);
-    transform: translateY(-1rem);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.feedSection {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-}
-.feedSection h2 {
-  position: relative;
-  color: #fff;
-  letter-spacing: -0.3vw;
-  /* text-transform: uppercase; */
-  -webkit-user-select: none;
-  user-select: none;
-  font-size: 10vw;
-  margin: -2rem 0 2rem;
-  padding: 0;
-  font-weight: lighter;
-}
-
 /* Tablet */
 @media only screen and (min-width: 768px) {
   h1 {
@@ -537,9 +438,6 @@ section .container {
     width: 4rem;
     height: 4rem;
     padding: 1.25rem;
-  }
-  .feedSection h2 {
-    font-size: 8vw;
   }
   section {
     padding: 5rem 5.5rem;
