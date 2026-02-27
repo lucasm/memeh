@@ -76,7 +76,7 @@ export default function Header() {
 
         <Space h="xl" />
 
-        <Button size="lg" component="a" href="https://github.com/sponsors/lucasm" target="_blank" rel="noopener noreferrer">
+        <Button size="md" component="a" href="https://github.com/sponsors/lucasm" target="_blank" rel="noopener noreferrer">
           ♥&#160;&#160;{t('donate')}
         </Button>
       </nav>
