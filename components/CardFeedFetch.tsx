@@ -27,10 +27,12 @@ export default function CardFeedFetch(props: Readonly<Props>) {
   const [loading, setLoading] = useState<boolean>(true)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [retryCount, setRetryCount] = useState(0)
+  const [hasRetried, setHasRetried] = useState(false)
 
   const abortControllerRef = useRef<AbortController | null>(null)
 
   const handleRetry = useCallback(() => {
+    setHasRetried(true)
     setErrorMessage(null)
     setRetryCount((c) => c + 1)
   }, [])
@@ -89,7 +91,7 @@ export default function CardFeedFetch(props: Readonly<Props>) {
     <ul>
       {errorMessage ? (
         <li>
-          <ButtonRetry onClick={handleRetry} feedName={props.name} errorMessage={errorMessage} />
+          <ButtonRetry onClick={handleRetry} feedName={props.name} errorMessage={errorMessage} showFeedback={hasRetried} />
         </li>
       ) : (
         data.map((item) => (

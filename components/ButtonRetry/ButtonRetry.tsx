@@ -4,12 +4,13 @@ type Props = {
   readonly onClick: () => void
   readonly feedName?: string
   readonly errorMessage?: string
+  readonly showFeedback?: boolean
 }
 
 const FEEDBACK_EMAIL = 'feedback@aspiral.app'
 
-export default function ButtonRetry({ onClick, feedName, errorMessage }: Props) {
-  const feedbackSubject = encodeURIComponent(`Error on feed: ${feedName || 'unknown`'}`)
+export default function ButtonRetry({ onClick, feedName, errorMessage, showFeedback = false }: Props) {
+  const feedbackSubject = encodeURIComponent(`Error on feed: ${feedName || 'unknown'}`)
   const feedbackBody = encodeURIComponent(`Hey,\n\nFeed "${feedName}" error.\n\n${errorMessage || 'unknown'}\n\nThanks!`)
   const mailtoLink = `mailto:${FEEDBACK_EMAIL}?subject=${feedbackSubject}&body=${feedbackBody}`
 
@@ -22,9 +23,11 @@ export default function ButtonRetry({ onClick, feedName, errorMessage }: Props) 
           ↻ Reload
         </Button>
 
-        <Button component="a" href={mailtoLink} variant="light" size="sm" color="black">
-          Feedback
-        </Button>
+        {showFeedback && (
+          <Button component="a" href={mailtoLink} variant="light" size="sm" color="black">
+            Feedback
+          </Button>
+        )}
       </span>
     </span>
   )
