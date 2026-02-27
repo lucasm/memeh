@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { IconAspiral } from '@/components/Icons'
 import { Button, Space } from '@mantine/core'
@@ -9,79 +9,94 @@ import { Button, Space } from '@mantine/core'
 export default function Header() {
   const [isActive, setActive] = useState<boolean>(false)
   const t = useTranslations()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  // Check if we're on the home page (just locale like /pt-BR or /en)
+  const isHomePage = pathname === `/${t('language')}` || pathname === `/${t('language')}/`
 
   function handleToggle() {
     setActive(!isActive)
   }
 
+  function handleLogoClick() {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      router.push(`/${t('language')}`)
+    }
+  }
+
   return (
-    <header suppressHydrationWarning>
-      <Link href={`/${t('language')}/#home`} id="logo" aria-label="Home">
-        <IconAspiral />
-        Aspiral
-      </Link>
+    <>
+      <header className={isHomePage ? '' : 'header-internal'} suppressHydrationWarning>
+        <button onClick={handleLogoClick} id="logo" aria-label="Home" type="button">
+          <IconAspiral />
+          Aspiral
+        </button>
 
-      <button onClick={handleToggle} className={isActive ? 'open' : undefined} id="menu" type="button">
-        Menu<div className="hamburger"></div>
-      </button>
+        <button onClick={handleToggle} className={isActive ? 'open' : undefined} id="menu" type="button">
+          Menu<div className="hamburger"></div>
+        </button>
 
-      <nav className={isActive ? 'open' : undefined}>
-        <ul>
-          <li>
-            <a href="#news" onClick={handleToggle}>
-              {t('news')}
-            </a>
-          </li>
-          <li>
-            <a href="#biz" onClick={handleToggle}>
-              {t('biz')}
-            </a>
-          </li>
-          <li>
-            <a href="#tech" onClick={handleToggle}>
-              {t('tech')}
-            </a>
-          </li>
-          <li>
-            <a href="#sport" onClick={handleToggle}>
-              {t('sport')}
-            </a>
-          </li>
-          <li>
-            <a href="#cult" onClick={handleToggle}>
-              {t('cult')}
-            </a>
-          </li>
-          <li>
-            <a href="#geek" onClick={handleToggle}>
-              {t('geek')}
-            </a>
-          </li>
-          <li>
-            <a href="#sci" onClick={handleToggle}>
-              {t('sci')}
-            </a>
-          </li>
-          <li>
-            <a href="#check" onClick={handleToggle}>
-              {t('check')}
-            </a>
-          </li>
-          <li>
-            <a href="#dscvr" onClick={handleToggle}>
-              {t('dscvr')}
-            </a>
-          </li>
-        </ul>
+        <nav className={isActive ? 'open' : undefined}>
+          <ul>
+            <li>
+              <a href="#news" onClick={handleToggle}>
+                {t('news')}
+              </a>
+            </li>
+            <li>
+              <a href="#biz" onClick={handleToggle}>
+                {t('biz')}
+              </a>
+            </li>
+            <li>
+              <a href="#tech" onClick={handleToggle}>
+                {t('tech')}
+              </a>
+            </li>
+            <li>
+              <a href="#sport" onClick={handleToggle}>
+                {t('sport')}
+              </a>
+            </li>
+            <li>
+              <a href="#cult" onClick={handleToggle}>
+                {t('cult')}
+              </a>
+            </li>
+            <li>
+              <a href="#geek" onClick={handleToggle}>
+                {t('geek')}
+              </a>
+            </li>
+            <li>
+              <a href="#sci" onClick={handleToggle}>
+                {t('sci')}
+              </a>
+            </li>
+            <li>
+              <a href="#check" onClick={handleToggle}>
+                {t('check')}
+              </a>
+            </li>
+            <li>
+              <a href="#dscvr" onClick={handleToggle}>
+                {t('dscvr')}
+              </a>
+            </li>
+          </ul>
 
-        <Space h="xl" />
+          <Space h="xl" />
 
-        <Button size="md" component="a" href="https://github.com/sponsors/lucasm" target="_blank" rel="noopener noreferrer">
-          ♥&#160;&#160;{t('donate')}
-        </Button>
-      </nav>
+          <Button size="md" component="a" href="https://github.com/sponsors/lucasm" target="_blank" rel="noopener noreferrer">
+            ♥&#160;&#160;{t('donate')}
+          </Button>
+        </nav>
+      </header>
 
       <div onClick={handleToggle} className={isActive ? 'layer layer-active' : 'layer'}></div>
-    </header>
+    </>
   )
 }
