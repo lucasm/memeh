@@ -12,6 +12,16 @@ export default async function AboutPage() {
             <section>
               <h1>Aspiral</h1>
               <p>Independent. Algorithm-free. Trusted journalism.</p>
+
+              <Button
+                component="a"
+                href="https://github.com/sponsors/lucasm"
+                color="#ff7c7e"
+                size="md"
+                target="_blank"
+                rel="noopener noreferrer">
+                ♥ {t('donate')}
+              </Button>
             </section>
 
             <section>
@@ -29,16 +39,6 @@ export default async function AboutPage() {
                 As a self-funded project, Aspiral ensures complete editorial independence from corporate or political interests. We
                 prioritize clarity, transparency, and the user’s right to high-quality, unfiltered information.
               </p>
-
-              <Button
-                component="a"
-                href="https://github.com/sponsors/lucasm"
-                color="#ff7c7e"
-                size="md"
-                target="_blank"
-                rel="noopener noreferrer">
-                ♥ Sponsor
-              </Button>
             </section>
 
             <section>
@@ -72,9 +72,15 @@ export default async function AboutPage() {
               <h2>Editorial Guidelines</h2>
               <p>Our selection process aims to dissolve ideological echo chambers by prioritizing:</p>
               <ul>
-                <li>Global news agencies for immediate, factual reporting.</li>
-                <li>Analytical journals for deep economic, cultural, scientific, and sociological context.</li>
-                <li>Niche publications focused on technology ethics, digital innovation, and human rights.</li>
+                <li>
+                  <strong>Global news agencies:</strong> for immediate, factual reporting.
+                </li>
+                <li>
+                  <strong>Analytical journals:</strong> for deep economic, cultural, scientific, and sociological context.
+                </li>
+                <li>
+                  <strong>Niche publications:</strong> focused on technology ethics, digital innovation, and human rights.
+                </li>
               </ul>
             </section>
 
@@ -82,10 +88,8 @@ export default async function AboutPage() {
               <h2>Accountability & Corrections</h2>
               <p>
                 We uphold the "Right to Correction." If you identify a source that fails to meet our quality standards or notice technical
-                errors in content display, please let us know.
+                errors in content display, please let us know. Contact us at email:
               </p>
-
-              <p>Contact us at:</p>
 
               <Button component="a" href="mailto:contact@aspiral.app" color="black" size="md" variant="outline">
                 contact@aspiral.app

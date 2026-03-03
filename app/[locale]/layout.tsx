@@ -9,6 +9,8 @@ import { getMessages, getTranslations } from 'next-intl/server'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MantineWrapper from '@/components/MantineWrapper'
+import CookiesPopup from '@/components/CookiesPopup'
+import { CookiesConsentContextProvider } from '@/contexts/CookiesConsentContext'
 import { routing } from '@/i18n/routing'
 
 import '../global.css'
@@ -132,13 +134,39 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html suppressHydrationWarning lang={locale} className={font.className}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <MantineWrapper>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </MantineWrapper>
-        </NextIntlClientProvider>
+        <CookiesConsentContextProvider>
+          <NextIntlClientProvider messages={messages}>
+            <MantineWrapper>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+              <CookiesPopup />
+            </MantineWrapper>
+          </NextIntlClientProvider>
+        </CookiesConsentContextProvider>
+
+        {/* Initialize consent as denied by default (before any tracking scripts) */}
+        <Script
+          id="CONSENT-INIT"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              // Initialize Google Consent Mode with all types denied
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied'
+              });
+
+              // Initialize Clarity consent as denied (via gtag)
+              gtag('event', 'page_view');
+            `,
+          }}
+        />
 
         {/* Clarity Analytics */}
         <Script
@@ -165,7 +193,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-89JR74CJC7');
+            gtag('config', 'G-89JR74CJC7', {
+              'anonymize_ip': true,
+              'allow_google_signals': false,
+              'allow_ad_personalization_signals': false
+            });
             `,
           }}
         />

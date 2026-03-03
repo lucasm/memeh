@@ -391,41 +391,6 @@ footer {
   margin: 0 auto;
   padding: 3rem 1.5rem 2rem;
 }
-footer ul {
-  list-style-type: none;
-  padding: 0;
-}
-footer li,
-footer p,
-footer label {
-  font-size: 1rem;
-  font-weight: bold;
-  display: inline-block;
-  padding: 1rem 0;
-}
-footer a,
-footer p,
-footer label {
-  color: var(--color-gray);
-}
-footer li {
-  padding: 0.5rem 0.75rem;
-}
-footer a svg {
-  width: 38px;
-  margin: 0 auto;
-  display: block;
-  fill: var(--color-gray);
-}
-
-footer a:hover svg,
-footer a:focus svg {
-  fill: var(--color-black);
-}
-footer a:hover,
-footer a:focus {
-  color: var(--color-black);
-}
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
@@ -470,6 +435,6 @@ footer a:focus {
 /* Desktop */
 @media only screen and (min-width: 1200px) {
   header nav a {
-    font-size: 1.75vw;
+    font-size: 1.5vw;
   }
 }

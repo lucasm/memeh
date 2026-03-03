@@ -1,0 +1,59 @@
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDownFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+}
+
+.cookiesPopup {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1rem;
+  left: unset;
+  display: flex;
+  width: 100%;
+  max-width: 20rem;
+  gap: 1.5rem;
+  color: var(--color-white);
+  background: var(--color-text-black, #000);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  z-index: 1000;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: var(--box-shadow, 0 10px 30px rgba(0, 0, 0, 0.3));
+  animation: slideUpFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  backdrop-filter: blur(8px);
+}
+
+.cookiesPopup button:first-of-type {
+  background: var(--color-white);
+}
+
+.cookiesPopup a:first-of-type {
+  font-weight: bold;
+  color: var(--color-white);
+}
+
+.slideUp {
+  animation: slideUpFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.slideDown {
+  animation: slideDownFadeOut 0.35s cubic-bezier(0.3, 0, 0.8, 0.3) forwards;
+}

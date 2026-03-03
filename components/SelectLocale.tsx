@@ -22,12 +22,9 @@ export default function SelectLocale() {
   }
 
   return (
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: '16rem',
-      }}>
+    <div>
       <Select
+        color="black"
         label={t('edition')}
         labelProps={{
           style: {
@@ -38,7 +35,7 @@ export default function SelectLocale() {
         wrapperProps={{
           style: {
             display: 'flex',
-            gap: '1rem',
+            gap: '.75rem',
             alignItems: 'center',
             verticalAlign: 'middle',
           },
