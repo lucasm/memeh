@@ -113,20 +113,18 @@
 }
 
 .footerBanners {
-  padding-top: 2rem;
+  padding: 2rem 0 1rem;
 }
 .footerBanners svg {
   font-size: 0;
   height: auto;
-  width: 7rem;
+  width: 1.5rem;
 }
 .footerBanners a {
-  font-size: 0 !important;
   display: flex;
   align-items: center;
-  height: 4rem;
-  opacity: 0.5;
-  font-size: 0 !important;
+  opacity: 0.4;
+  gap: 0.75rem;
 }
 
 .footerCopyright {

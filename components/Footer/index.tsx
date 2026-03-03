@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { BannerCarbon, BannerOpenSource, BannerTheTrustProject, IconAspiral } from '@/components/Icons'
+import { BannerCarbon, BannerOpenSource, IconTheTrustProject, IconAccessibility, IconAspiral } from '@/components/Icons'
 import { useCookiesConsent } from '@/contexts/CookiesConsentContext'
 
 import styles from './Footer.module.css'
@@ -73,6 +73,12 @@ export default function Footer() {
             </a>
           </li>
           <li>
+            <a href="#">
+              <IconAccessibility />
+              Accessibility
+            </a>
+          </li>
+          <li>
             <a href="https://www.websitecarbon.com/website/aspiral-app/" target="_blank" rel="external noreferrer">
               <BannerCarbon />
               Carbon Neutral
@@ -80,7 +86,7 @@ export default function Footer() {
           </li>
           <li>
             <a href="https://thetrustproject.org/" target="_blank" rel="external noreferrer">
-              <BannerTheTrustProject />
+              <IconTheTrustProject />
               The Trust Project
             </a>
           </li>
